@@ -107,7 +107,8 @@ Allows users to create profiles to track their fitness goals. This is a self rep
     * --> provide the friends feed to the user, might be implemented on another activity
 
 ## Wireframes
-<img src="https://github.com/Fitness-Guys/Fitness-App/blob/main/wireframe.pdf" width=600>
+<img src="https://github.com/Fitness-Guys/Fitness-App/blob/main/wireframe.pdf" width=400>
+
 ### [BONUS] Interactive Prototype
 
 ## Schema 
