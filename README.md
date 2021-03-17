@@ -107,7 +107,7 @@ Allows users to create profiles to track their fitness goals. This is a self rep
     * --> provide the friends feed to the user, might be implemented on another activity
 
 ## Wireframes
-![](wireframe.pdf)
+<img src='WireFrame.png' title='WireFrame' width='' alt='Video Walkthrough' />
 ### [BONUS] Interactive Prototype
 
 ## Schema 
