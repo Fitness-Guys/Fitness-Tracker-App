@@ -1,4 +1,3 @@
-# Fitness_App
 Original App Design Project - README Template
 ===
 
@@ -107,7 +106,10 @@ Allows users to create profiles to track their fitness goals. This is a self rep
     * --> provide the friends feed to the user, might be implemented on another activity
 
 ## Wireframes
-<img src='WireFrame.png' title='WireFrame' width='' alt='Walkthrough' />
+[Add picture of your hand sketched wireframes in this section]
+<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+
+### [BONUS] Digital Wireframes & Mockups
 
 ### [BONUS] Interactive Prototype
 
@@ -119,3 +121,152 @@ Allows users to create profiles to track their fitness goals. This is a self rep
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+## Schema 
+### Models
+#### User
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user post (default field) |
+   | author        | Pointer to User| image author |
+   | image         | File     | profile image |
+   | Weight       | Number   | weight of the user thats inputted during sign up |
+   | Height | String   | Height of the user thats inputted during sign up |
+   | Password    | String   | Password |
+   | Username     | String | username used to sign in |
+   | lastWorkout | Pointer to Workout | Date & time of last workout |
+   | Email | String | email for user
+   | createdAt | DateTime | date and time when profile created
+   
+#### Workout
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | object ID | String | unique id for the workout
+   | createdAt | DateTime | date and time when the workout was initialized
+   | start | DateTime | time when the workout was started
+   | end | DateTime |time when the workout was completed
+   | duration | String | calculated from start and end to display total time of workout
+   | WorkoutType | String | name of the specific workout
+   | Calories | Number | Carlories burned for the workout
+   
+#### Date Summary
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | Date | DateTime | The date 
+   | Weather | String | Data gathered from weather API
+   
+#### Current Summary
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | Object ID | String | unique ID for the day Summary
+   | TotalDuration | Number | calculated duration of workouts from the same day
+   | Calories | Number | calculated Calories of workouts from the same day
+   
+
+   
+   
+### Networking
+#### List of network requests by screen
+   - Home Screen
+      - (Read/GET) Query Date and Weather, total duration, total calories, workouts done sameday
+``` java
+    Date d = new Date();
+    SimpleDateFormat dateForm = new SimpleDateFormat("MM/dd/YY");
+    String date = dateForm.format(date);
+    Weather weather = new Weather() //Sudo code for weather API call
+    ParseQuery<Workout> query = ParseQuery.getQuery(Workout.class);
+    query.findInBackground(new FindCallback<Workout>() {
+        ....
+    })
+
+```
+
+
+   - User Sign up
+``` java
+
+    ParseUser user = new ParseUser();
+
+    user.setUsername("catstevens");
+    user.setPassword("space#cowboy");
+    user.setEmail("email@example.com");
+    user.put("phone", "650-253-0000");
+    user.signUpInBackground(new SignUpCallback() {
+      public void done(ParseException e) {
+        if (e == null) {
+
+        } else {
+          // Sign up didn't succeed. Look at the ParseException
+          // to figure out what went wrong
+        }
+      }
+    }); 
+```
+
+   - Profile Screen
+      - (Read/GET) Query logged in user object
+      - (Read/GET) Summary of workouts, use graphs too
+      - (Update/PUT) Update user profile image
+``` java 
+    ParseQuery<ParseObject> query =     ParseQuery.getQuery(Workout.class);
+    
+    // Include the post data with each comment
+    query.include("Author"); // the key which the associated object was stored
+    
+    // Execute query with eager-loaded owner
+    query.findInBackground(new FindCallback<ParseObject>()     {
+     ....
+    }       
+          
+``` 
+      
+      
+      
+      
+   - Workout
+       - (Create/Post) Create a new Workout Object
+``` java
+    @ParseClassName("Workout")
+    public class Workout extends ParseObject {
+   /**objectId 
+    * createdAt DateTime
+    * start = createdAt
+    * end
+    * duration
+    * workoutType enum - General, Strength, Run, Walk, Yoga
+    * calories - calc: Weight- duration- MET
+    * 
+    * 
+    * */
+    }
+
+```
+     
+      
+
+
+#### [OPTIONAL:] Existing API Endpoints
+##### An API Of Ice And Fire
+- Base URL - [http://www.anapioficeandfire.com/api](http://www.anapioficeandfire.com/api)
+
+   HTTP Verb | Endpoint | Description
+   ----------|----------|------------
+    `GET`    | /characters | get all characters
+    `GET`    | /characters/?name=name | return specific character by name
+    `GET`    | /houses   | get all houses
+    `GET`    | /houses/?name=name | return specific house by name
+
+##### Game of Thrones API
+- Base URL - [https://api.got.show/api](https://api.got.show/api)
+
+   HTTP Verb | Endpoint | Description
+   ----------|----------|------------
+    `GET`    | /cities | gets all cities
+    `GET`    | /cities/byId/:id | gets specific city by :id
+    `GET`    | /continents | gets all continents
+    `GET`    | /continents/byId/:id | gets specific continent by :id
+    `GET`    | /regions | gets all regions
+    `GET`    | /regions/byId/:id | gets specific region by :id
+    `GET`    | /characters/paths/:name | gets a character's path with a given name
