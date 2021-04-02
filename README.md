@@ -106,8 +106,8 @@ Allows users to create profiles to track their fitness goals. This is a self rep
     * --> provide the friends feed to the user, might be implemented on another activity
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="WireFrame.png" width=600>
+
 
 ### [BONUS] Digital Wireframes & Mockups
 
@@ -270,3 +270,4 @@ Allows users to create profiles to track their fitness goals. This is a self rep
     `GET`    | /regions | gets all regions
     `GET`    | /regions/byId/:id | gets specific region by :id
     `GET`    | /characters/paths/:name | gets a character's path with a given name
+

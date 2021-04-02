@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/home"
+        android:title="Home"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_learn"
+        android:icon="@drawable/learn"
+        android:title="Learn Workout"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_track"
+        android:icon="@drawable/track"
+        android:title="Add Workout"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_profile"
+        android:icon="@drawable/profile"
+        android:title="Profile"
+        app:showAsAction="always" />
+</menu>
