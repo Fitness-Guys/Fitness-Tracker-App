@@ -79,6 +79,8 @@ public class LoginActivity extends AppCompatActivity {
         user.setPassword(etPassword.getText().toString());
         user.setUsername(etUsername.getText().toString());
         user.setEmail(etEmailAddress.getText().toString());
+        user.put("Height",etNewHeight.getText().toString());
+        user.put("Weight",etNewWeight.getText().toString());
         /**
          * will also need to take in:
          * email
