@@ -1,14 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tvWorkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivCalories"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="#6AA3F1"
+        android:textStyle="bold"
+        tools:text="Workouts" />
+
+    <TextView
+        android:id="@+id/tvSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivWeather"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="#6AA3F1"
+        android:textStyle="bold"
+        tools:text="Summary" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat"
+        android:text="TextView"
+        android:textColor="#6AA3F1"
+        android:textStyle="bold"
+        tools:text="Hello Name" />
+
+    <ImageView
+        android:id="@+id/ivDate"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/tvUserName"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        tools:src="@android:drawable/ic_menu_my_calendar" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUserName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_toEndOf="@+id/ivDate"
+        android:text="TextView"
+        tools:src="@android:drawable/ic_menu_my_calendar" />
+
+    <TextView
+        android:id="@+id/tvWeather"
+        android:layout_width="133dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUserName"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="0dp"
+        android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/ivWeather"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/tvUserName"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@+id/tvWeather"
+        android:layout_toEndOf="@+id/tvDate"
+        android:src="@android:drawable/ic_menu_gallery" />
+
+    <ImageView
+        android:id="@+id/ivActivity"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/tvSummary"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:src="@android:drawable/ic_menu_recent_history" />
+
+    <TextView
+        android:id="@+id/tvActivity"
+        android:layout_width="107dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvSummary"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="25dp"
+        android:layout_toEndOf="@+id/ivActivity"
+        android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/ivCalories"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/tvSummary"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toStartOf="@+id/tvCalories"
+        android:layout_toEndOf="@+id/tvActivity"
+        android:src="@android:drawable/star_big_on" />
+
+    <TextView
+        android:id="@+id/tvCalories"
+        android:layout_width="129dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvSummary"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="17dp"
+        android:text="TextView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvWorkouts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello home fragment" />
+        android:layout_below="@+id/tvWorkout"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="10dp" />
 
-</FrameLayout>
+</RelativeLayout>
