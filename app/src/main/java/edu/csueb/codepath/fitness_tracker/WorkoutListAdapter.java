@@ -73,7 +73,6 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
     }
     */
 
-
     class ViewHolder extends RecyclerView.ViewHolder{
         CheckBox task;
 
