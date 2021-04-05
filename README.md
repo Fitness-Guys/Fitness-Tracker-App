@@ -1,6 +1,3 @@
-Original App Design Project - README Template
-===
-
 # Fitness Tracker
 
 ## Table of Contents
@@ -29,30 +26,30 @@ Allows users to create profiles to track their fitness goals. This is a self rep
 
 **Required Must-have Stories**
 User to sign up
-[] name, username, password,wt,ht
+- [x] name, username, password,wt,ht
     
 User to login
-[ ]username
-[ ] password
+- [x] username
+- [x] password
 
 Profile Screen
-[ ] username, ht, weight(maybe?), fitness level 
+- [ ] username, ht, weight(maybe?), fitness level 
 
 
 User to home screen
-[ ] display past days workouts
-[ ] display total burned calories over a given duration
+- [ ] display past days workouts
+- [ ] display total burned calories over a given duration
 
 Have a workout activity page that will begin to track the users activities. 
-[ ] This will have a checkbox for the premade list of exercises. 
-[ ] a submit/start button(starts timer)
+- [x] This will have a checkbox for the premade list of exercises. 
+- [ ] a submit/start button(starts timer)
     
 
 
 In workout screen
-[ ] display timer(to calc burned calories)
-[ ] display select workout
-[ ] workout completed button -> display calorie and time results. W/ a positive message. Close screen back to home page.
+- [ ] display timer(to calc burned calories)
+- [x] display select workout
+- [ ] workout completed button -> display calorie and time results. W/ a positive message. Close screen back to home page.
  
 
 
