@@ -7,7 +7,7 @@
     tools:context=".fragments.HomeFragment">
 
     <TextView
-        android:id="@+id/tvSummary2"
+        android:id="@+id/tvWorkout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivCalories"
@@ -130,10 +130,10 @@
         android:text="TextView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/WorkoutContainer"
+        android:id="@+id/rvWorkouts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tvSummary2"
+        android:layout_below="@+id/tvWorkout"
         android:layout_alignParentStart="true"
         android:layout_marginStart="3dp"
         android:layout_marginTop="10dp" />

@@ -5,10 +5,12 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import edu.csueb.codepath.fitness_tracker.R;
 
@@ -31,5 +33,14 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        TextView tvName;
+        TextView tvUserHeight;
+        TextView tvUserWeight;
+        RecyclerView rvWorkouts; // working on
+
+        tvName.setText(); // need info
+        tvUserHeight.setText(); // need info
+        tvUserWeight.setText(); // need info
     }
 }
