@@ -28,28 +28,28 @@ Allows users to create profiles to track their fitness goals. This is a self rep
 ### 1. User Stories (Required and Optional)
 
 **Required Must-have Stories**
-* User to sign up
+User to sign up
 [ ] name, username, password,wt,ht
     
-* User to login
+User to login
 [ ] username
 [ ] password
 
-* Profile Screen
+Profile Screen
 [ ] username, ht, weight(maybe?), fitness level 
 
 
-* User to home screen
+User to home screen
 [ ] display past days workouts
 [ ] display total burned calories over a given duration
 
-* Have a workout activity page that will begin to track the users activities. 
+Have a workout activity page that will begin to track the users activities. 
 [ ] This will have a checkbox for the premade list of exercises. 
 [ ] a submit/start button(starts timer)
     
 
 
-* In workout screen
+In workout screen
 [ ] display timer(to calc burned calories)
 [ ] display select workout
 [ ] workout completed button -> display calorie and time results. W/ a positive message. Close screen back to home page.
