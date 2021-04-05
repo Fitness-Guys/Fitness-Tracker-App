@@ -1,5 +1,6 @@
 package edu.csueb.codepath.fitness_tracker;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,7 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.workout_task_layout, parent, false);
         return new ViewHolder(itemView);
@@ -51,7 +53,7 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
 
     public void setWorkouts(List<String> workoutList){
         this.workouts = workoutList;
-        notifyDataSetChanged();
+        this.notifyDataSetChanged();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{

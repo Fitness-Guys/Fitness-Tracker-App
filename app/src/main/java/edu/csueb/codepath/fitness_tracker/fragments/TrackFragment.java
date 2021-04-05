@@ -25,7 +25,8 @@ public class TrackFragment extends Fragment {
 
     private RecyclerView rvWorkout;
     private WorkoutListAdapter workoutListAdapter;
-    List<String> workouts;
+    List<String> workouts;  //is going to be used to store the workouts
+    List<String> selected;  //is going to hold workouts that has been checked
 
 
     public TrackFragment() {
@@ -40,22 +41,10 @@ public class TrackFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_track, container, false);
         rvWorkout = (RecyclerView) view.findViewById(R.id.rvWorkout);
         Context context = view.getContext();
+        //rvWorkout.setLayoutManager(new LinearLayoutManager(context));
         rvWorkout.setLayoutManager(new LinearLayoutManager(context));
-
         workoutListAdapter = new WorkoutListAdapter(workouts, this);
-
-        workouts = new ArrayList<>();
-        workouts.add("General");
-        workouts.add("Strength Training");
-        workouts.add("Run");
-        workouts.add("Walk");
-        workouts.add("Yoga");
-
-
-        workoutListAdapter.setWorkouts(workouts);
-
-
-
+        rvWorkout.setAdapter(workoutListAdapter);
         return view;
     }
 
@@ -64,6 +53,15 @@ public class TrackFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        workouts = new ArrayList<>();
+        workouts.add("General");
+        workouts.add("Strength Training");
+        workouts.add("Run");
+        workouts.add("Walk");
+        workouts.add("Yoga");
+
+        workoutListAdapter.setWorkouts(workouts);
+
     }
 
 }

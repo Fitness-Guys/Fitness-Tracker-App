@@ -14,9 +14,10 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
         android:text="Workout Type"
         android:textColor="#6AA3F1"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvWorkout"

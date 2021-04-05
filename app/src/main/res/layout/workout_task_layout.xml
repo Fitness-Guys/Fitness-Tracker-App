@@ -23,6 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@color/bottom_navigation_selector"
+            android:checked="false"
+            android:fontFamily="@font/montserrat"
+            android:textSize="17sp"
             tools:text="This is a test Text">
 
         </CheckBox>
