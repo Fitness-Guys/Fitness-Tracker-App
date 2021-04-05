@@ -29,8 +29,8 @@ User to sign up
 - [x] name, username, password,wt,ht
     
 User to login
-- [x] username
-- [x] password
+- [ ] username
+- [ ] password
 
 Profile Screen
 - [ ] username, ht, weight(maybe?), fitness level 
