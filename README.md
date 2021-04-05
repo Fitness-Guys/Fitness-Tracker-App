@@ -32,7 +32,7 @@ User to sign up
 [ ] name, username, password,wt,ht
     
 User to login
-[ ] username
+[ ]username
 [ ] password
 
 Profile Screen
