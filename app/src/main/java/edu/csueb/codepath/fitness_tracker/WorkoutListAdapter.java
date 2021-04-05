@@ -1,6 +1,7 @@
 package edu.csueb.codepath.fitness_tracker;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.CheckBox;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.csueb.codepath.fitness_tracker.fragments.TrackFragment;
@@ -21,6 +24,7 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
     }
 
     private List<String> workouts;
+    private List<CheckBox> workoutCheckboxs;
     private TrackFragment activity;
 
     OnClickListener clickListener;
@@ -56,12 +60,27 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
         this.notifyDataSetChanged();
     }
 
+    /*
+    public List<String> getChecked(){
+        List<String> checked = new ArrayList<>();
+        for(CheckBox item: workoutCheckboxs){
+            if(item.isChecked()){
+                checked.add(item.getText().toString());
+            }
+        }
+
+        return checked;
+    }
+    */
+
+
     class ViewHolder extends RecyclerView.ViewHolder{
         CheckBox task;
 
         public ViewHolder(View view){
             super(view);
             task = (CheckBox) view.findViewById(R.id.checkbox);
+            //workoutCheckboxs.add(task);
         }
 
         public void bind(String item) {
