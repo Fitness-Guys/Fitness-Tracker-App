@@ -56,7 +56,6 @@ Allows users to create profiles to track their fitness goals. This is a self rep
  
 
 
-
 **Optional Nice-to-have Stories**
 
 * Include a social aspect where the user could post the activities they have completed
