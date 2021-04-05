@@ -29,7 +29,7 @@ Allows users to create profiles to track their fitness goals. This is a self rep
 
 **Required Must-have Stories**
 * User to sign up
-    * name, username, password,wt,ht
+   [] name, username, password,wt,ht
     
 * User to login
     * username
@@ -107,6 +107,7 @@ Allows users to create profiles to track their fitness goals. This is a self rep
 
 ## Wireframes
 <img src="WireFrame.png" width=600>
+
 
 ### [BONUS] Digital Wireframes & Mockups
 
@@ -269,3 +270,4 @@ Allows users to create profiles to track their fitness goals. This is a self rep
     `GET`    | /regions | gets all regions
     `GET`    | /regions/byId/:id | gets specific region by :id
     `GET`    | /characters/paths/:name | gets a character's path with a given name
+
