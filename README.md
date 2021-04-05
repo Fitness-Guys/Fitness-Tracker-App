@@ -29,7 +29,7 @@ Allows users to create profiles to track their fitness goals. This is a self rep
 
 **Required Must-have Stories**
 * User to sign up
-    * name, username, password,wt,ht
+    *-[] name, username, password,wt,ht
     
 * User to login
     * username

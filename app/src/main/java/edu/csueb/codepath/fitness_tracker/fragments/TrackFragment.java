@@ -52,14 +52,6 @@ public class TrackFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_track, container, false);
         rvWorkout = (RecyclerView) view.findViewById(R.id.rvWorkout);
         CardView cardView = (CardView) view.findViewById(R.id.card_workoutTask);
-        /*
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
-
-         */
 
         //startButton = (Button) view.findViewById(R.id.btnStart);
         /*
