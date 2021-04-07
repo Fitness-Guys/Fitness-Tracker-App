@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvWorkout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="131dp"
         android:gravity="center"
         android:textSize="30sp" />
 

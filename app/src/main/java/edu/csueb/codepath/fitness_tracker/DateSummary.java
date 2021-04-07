@@ -13,7 +13,7 @@ public class DateSummary {
 
     public String Date;
     public String Weather;
-
+/*
     public static String getDate() {
         // Using the SimpleDateFormat to get today's date and return the value
         Date today = new Date();
@@ -27,5 +27,6 @@ public class DateSummary {
         return Weather;
     }
 
+*/
 }
-}
+
