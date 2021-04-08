@@ -39,8 +39,10 @@ public class ProfileFragment extends Fragment {
         TextView tvUserWeight;
         RecyclerView rvWorkouts; // working on
 
+        /*
         tvName.setText(); // need info
         tvUserHeight.setText(); // need info
         tvUserWeight.setText(); // need info
+         */
     }
 }

@@ -24,6 +24,7 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".workout_timer"/>
 
     </application>
 </manifest>
