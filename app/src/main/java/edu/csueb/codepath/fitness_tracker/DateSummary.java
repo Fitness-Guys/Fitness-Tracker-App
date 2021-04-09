@@ -14,7 +14,7 @@ public class DateSummary {
 
     public static String Date;
     public String Weather;
-
+/*
     public static String getDate() {
         // Using the SimpleDateFormat to get today's date and return the value
         java.util.Date today = new Date();
@@ -28,5 +28,6 @@ public class DateSummary {
         return "";
     }
 
+*/
 }
 

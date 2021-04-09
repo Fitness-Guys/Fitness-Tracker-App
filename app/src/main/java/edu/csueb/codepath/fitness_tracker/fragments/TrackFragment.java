@@ -1,6 +1,7 @@
 package edu.csueb.codepath.fitness_tracker.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -27,6 +28,7 @@ import java.util.StringTokenizer;
 
 import edu.csueb.codepath.fitness_tracker.R;
 import edu.csueb.codepath.fitness_tracker.WorkoutListAdapter;
+import edu.csueb.codepath.fitness_tracker.workout_timer;
 
 import static java.lang.String.join;
 
@@ -53,19 +55,22 @@ public class TrackFragment extends Fragment {
         rvWorkout = (RecyclerView) view.findViewById(R.id.rvWorkout);
         CardView cardView = (CardView) view.findViewById(R.id.card_workoutTask);
 
-        //startButton = (Button) view.findViewById(R.id.btnStart);
-        /*
+        startButton = (Button) view.findViewById(R.id.btnStart);
+
         startButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
+                /*
                 Log.i(TAG, "Start Button Clicked");
                 //selected = workoutListAdapter.getChecked();
                 String str = join(", ", selected);
-                Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
+                 */
+                Intent i = new Intent(getActivity(), workout_timer.class);
+                startActivity(i);
             }
         });
-         */
+
 
         Context context = view.getContext();
         //rvWorkout.setLayoutManager(new LinearLayoutManager(context));
@@ -87,6 +92,7 @@ public class TrackFragment extends Fragment {
         workouts.add("Run");
         workouts.add("Walk");
         workouts.add("Yoga");
+
 
         workoutListAdapter.setWorkouts(workouts);
     }
