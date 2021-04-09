@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
         tvDate = view.findViewById(R.id.tvDate);
         tvWeather = view.findViewById(R.id.tvWeather);
 
-        tvUserName.setText(); // need info
+//        tvUserName.setText(); // need info
         tvDate.setText(DateSummary.getDate());
         tvWeather.setText(DateSummary.getWeather());
     }
