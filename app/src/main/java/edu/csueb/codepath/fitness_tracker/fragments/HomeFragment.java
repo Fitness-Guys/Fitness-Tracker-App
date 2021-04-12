@@ -1,19 +1,27 @@
 package edu.csueb.codepath.fitness_tracker.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import org.w3c.dom.Text;
 
 import edu.csueb.codepath.fitness_tracker.DateSummary;
+import edu.csueb.codepath.fitness_tracker.LoginActivity;
 import edu.csueb.codepath.fitness_tracker.R;
 
 public class HomeFragment extends Fragment {
@@ -21,6 +29,7 @@ public class HomeFragment extends Fragment {
     TextView tvUserName;
     TextView tvDate;
     TextView tvWeather;
+    ImageButton btnEdit;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -44,9 +53,20 @@ public class HomeFragment extends Fragment {
         tvUserName = view.findViewById(R.id.tvUserName);
         tvDate = view.findViewById(R.id.tvDate);
         tvWeather = view.findViewById(R.id.tvWeather);
+        btnEdit = view.findViewById(R.id.btnEdit);
 
         tvUserName.setText(); // need info
         tvDate.setText(DateSummary.getDate());
         tvWeather.setText(DateSummary.getWeather());
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeFragment.this, MainActivity2.class);
+                startActivity(i);
+            }
+        }
+
+
     }
 }
