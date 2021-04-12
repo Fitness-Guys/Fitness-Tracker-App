@@ -7,16 +7,17 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class DateSummary {
 
-    public String Date;
+    public static String Date;
     public String Weather;
 /*
     public static String getDate() {
         // Using the SimpleDateFormat to get today's date and return the value
-        Date today = new Date();
+        java.util.Date today = new Date();
         SimpleDateFormat format = new SimpleDateFormat("MMM d");
         Date = format.format(today);
 
@@ -24,7 +25,7 @@ public class DateSummary {
     }
 
     public static String getWeather() {
-        return Weather;
+        return "";
     }
 
 */

@@ -21,6 +21,10 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etPassword;
     private Button btnLogin;
 
+
+    private EditText etfirstName;
+    private EditText etlastname;
+    private EditText etage;
     private EditText etEmailAddress;
     private EditText etNewWeight;
     private EditText etNewHeight;
@@ -35,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         
         etUsername =  findViewById(R.id.etUsername);
-        etPassword =  findViewById(R.id.etPassword);
+        etPassword =  findViewById(R.id.etPassword1);
         btnLogin = findViewById(R.id.btnsubmit);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +51,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        etfirstName = findViewById(R.id.etfirstname);
+        etlastname = findViewById(R.id.etlastname);
+        etage = findViewById(R.id.etage);
         etNewHeight = findViewById(R.id.etNewHeight);
         etNewWeight = findViewById(R.id.etNewWeight);
         etEmailAddress = findViewById(R.id.etEmailAddress);
@@ -79,8 +86,12 @@ public class LoginActivity extends AppCompatActivity {
         user.setPassword(etPassword.getText().toString());
         user.setUsername(etUsername.getText().toString());
         user.setEmail(etEmailAddress.getText().toString());
-        user.put("Height",etNewHeight.getText().toString());
-        user.put("Weight",etNewWeight.getText().toString());
+        user.put("firstname", etfirstName.getText().toString());
+        user.put("lastname", etlastname.getText().toString());
+        user.put("height",etNewHeight.getText().toString());
+        user.put("weight",etNewWeight.getText().toString());
+        user.put("age", etage.getText().toString());
+
         /**
          * will also need to take in:
          * email
@@ -91,6 +102,8 @@ public class LoginActivity extends AppCompatActivity {
          *
          *
          * */
+
+
         user.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
