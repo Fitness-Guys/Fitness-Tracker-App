@@ -245,7 +245,8 @@ In workout screen
 
 ```
      
-      
+### Progress Gif
+![](progress.gif)
 
 
 #### [OPTIONAL:] Existing API Endpoints
