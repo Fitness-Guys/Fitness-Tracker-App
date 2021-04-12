@@ -22,6 +22,7 @@ import org.w3c.dom.Text;
 
 import edu.csueb.codepath.fitness_tracker.DateSummary;
 import edu.csueb.codepath.fitness_tracker.LoginActivity;
+import edu.csueb.codepath.fitness_tracker.MainActivity;
 import edu.csueb.codepath.fitness_tracker.R;
 
 public class HomeFragment extends Fragment {
@@ -64,10 +65,10 @@ public class HomeFragment extends Fragment {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomeFragment.this, MainActivity2.class);
+                Intent i = new Intent(getContext(), MainActivity.class);
                 startActivity(i);
             }
-        }
+        });
 
     }
 }
