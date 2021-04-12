@@ -47,7 +47,7 @@ Have a workout activity page that will begin to track the users activities.
 
 
 In workout screen
-- [ ] display timer(to calc burned calories)
+- [x] display timer(to calc burned calories)
 - [x] display select workout
 - [ ] workout completed button -> display calorie and time results. W/ a positive message. Close screen back to home page.
  
@@ -254,16 +254,4 @@ In workout screen
     `GET`    | /houses   | get all houses
     `GET`    | /houses/?name=name | return specific house by name
 
-##### Game of Thrones API
-- Base URL - [https://api.got.show/api](https://api.got.show/api)
-
-   HTTP Verb | Endpoint | Description
-   ----------|----------|------------
-    `GET`    | /cities | gets all cities
-    `GET`    | /cities/byId/:id | gets specific city by :id
-    `GET`    | /continents | gets all continents
-    `GET`    | /continents/byId/:id | gets specific continent by :id
-    `GET`    | /regions | gets all regions
-    `GET`    | /regions/byId/:id | gets specific region by :id
-    `GET`    | /characters/paths/:name | gets a character's path with a given name
 
