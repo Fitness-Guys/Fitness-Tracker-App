@@ -29,11 +29,11 @@ User to sign up
 - [x] name, username, password,wt,ht
     
 User to login
-- [ ] username
-- [ ] password
+- [x ] username
+- [x ] password
 
 Profile Screen
-- [x] username, ht, weight(maybe?), fitness level 
+- [] username, ht, weight(maybe?), fitness level 
 
 User to home screen
 - [x] display past days workouts
