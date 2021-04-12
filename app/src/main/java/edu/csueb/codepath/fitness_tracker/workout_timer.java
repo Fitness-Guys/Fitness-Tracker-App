@@ -83,6 +83,6 @@ public class workout_timer extends FragmentActivity {
 
     public void resetTimer(View view){
         chronometer.setBase(SystemClock.elapsedRealtime());
-        Toast.makeText(this, "Finished", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Finished", Toast.LENGTH_SHORT).show();
     }
 }
