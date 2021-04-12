@@ -1,6 +1,3 @@
-Original App Design Project - README Template
-===
-
 # Fitness Tracker
 
 ## Table of Contents
@@ -28,33 +25,32 @@ Allows users to create profiles to track their fitness goals. This is a self rep
 ### 1. User Stories (Required and Optional)
 
 **Required Must-have Stories**
-* User to sign up
-    * name, username, password,wt,ht
+User to sign up
+- [x] name, username, password,wt,ht
     
-* User to login
-    * username
-    * password
+User to login
+- [ ] username
+- [ ] password
 
-* Profile Screen
-    * username, ht, weight(maybe?), fitness level 
+Profile Screen
+- [ ] username, ht, weight(maybe?), fitness level 
 
 
-* User to home screen
-    * display past days workouts
-    * display total burned calories over a given duration
+User to home screen
+- [ ] display past days workouts
+- [ ] display total burned calories over a given duration
 
-* Have a workout activity page that will begin to track the users activities. 
-    * This will have a checkbox for the premade list of exercises. 
-    * a submit/start button(starts timer)
+Have a workout activity page that will begin to track the users activities. 
+- [x] This will have a checkbox for the premade list of exercises. 
+- [ ] a submit/start button(starts timer)
     
 
 
-* In workout screen
-    * display timer(to calc burned calories)
-    * display select workout
-    * workout completed button -> display calorie and time results. W/ a positive message. Close screen back to home page.
+In workout screen
+- [x] display timer(to calc burned calories)
+- [x] display select workout
+- [ ] workout completed button -> display calorie and time results. W/ a positive message. Close screen back to home page.
  
-
 
 
 **Optional Nice-to-have Stories**
@@ -107,6 +103,7 @@ Allows users to create profiles to track their fitness goals. This is a self rep
 
 ## Wireframes
 <img src="WireFrame.png" width=600>
+
 
 ### [BONUS] Digital Wireframes & Mockups
 
@@ -257,15 +254,4 @@ Allows users to create profiles to track their fitness goals. This is a self rep
     `GET`    | /houses   | get all houses
     `GET`    | /houses/?name=name | return specific house by name
 
-##### Game of Thrones API
-- Base URL - [https://api.got.show/api](https://api.got.show/api)
 
-   HTTP Verb | Endpoint | Description
-   ----------|----------|------------
-    `GET`    | /cities | gets all cities
-    `GET`    | /cities/byId/:id | gets specific city by :id
-    `GET`    | /continents | gets all continents
-    `GET`    | /continents/byId/:id | gets specific continent by :id
-    `GET`    | /regions | gets all regions
-    `GET`    | /regions/byId/:id | gets specific region by :id
-    `GET`    | /characters/paths/:name | gets a character's path with a given name
