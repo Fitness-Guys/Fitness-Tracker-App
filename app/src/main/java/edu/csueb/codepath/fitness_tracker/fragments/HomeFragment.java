@@ -55,9 +55,10 @@ public class HomeFragment extends Fragment {
         tvWeather = view.findViewById(R.id.tvWeather);
         btnEdit = view.findViewById(R.id.btnEdit);
 
-        tvUserName.setText(); // need info
-        tvDate.setText(DateSummary.getDate());
-        tvWeather.setText(DateSummary.getWeather());
+
+        //tvUserName.setText(); // need info
+        //tvDate.setText(DateSummary.getDate());
+        //tvWeather.setText(DateSummary.getWeather());
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override

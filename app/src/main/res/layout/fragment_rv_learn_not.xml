@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".fragments.LearnFragment">
 
-    <ListView
-        android:id="@+id/listView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTutorials"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </RelativeLayout>

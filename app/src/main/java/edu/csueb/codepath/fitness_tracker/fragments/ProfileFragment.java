@@ -44,5 +44,6 @@ public class ProfileFragment extends Fragment {
         tvUserHeight.setText(); // need info
         tvUserWeight.setText(); // need info
          */
+
     }
 }
