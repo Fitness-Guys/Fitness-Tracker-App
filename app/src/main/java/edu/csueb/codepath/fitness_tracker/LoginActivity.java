@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    public void createUser(View view){
+    public void signup(View view){
         ParseUser user = new ParseUser();
         user.setPassword(etPassword.getText().toString());
         user.setUsername(etUsername.getText().toString());
