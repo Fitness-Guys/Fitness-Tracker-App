@@ -29,22 +29,27 @@ User to sign up
 - [x] name, username, password,wt,ht
     
 User to login
-- [ ] username
-- [ ] password
+- [x] username
+- [x] password
 
 Profile Screen
-- [ ] username, ht, weight(maybe?), fitness level 
-
+- [] username, ht, weight(maybe?), fitness level 
 
 User to home screen
-- [ ] display past days workouts
+- [x] display past days workouts
 - [ ] display total burned calories over a given duration
 
 Have a workout activity page that will begin to track the users activities. 
 - [x] This will have a checkbox for the premade list of exercises. 
 - [ ] a submit/start button(starts timer)
     
-
+Video tutorials fragment.
+- [x] ListView displaying categories.
+- [x] Youtube API calls and create model data
+- [x] RecyclerView of the videos returning from category query
+- [x] Video Playback activity
+- [ ] Improve astetics of the activities to meet professional look
+- [ ] Autoplay videos in fullscreen mode
 
 In workout screen
 - [x] display timer(to calc burned calories)
