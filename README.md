@@ -33,11 +33,10 @@ User to login
 - [ ] password
 
 Profile Screen
-- [ ] username, ht, weight(maybe?), fitness level 
-
+- [x] username, ht, weight(maybe?), fitness level 
 
 User to home screen
-- [ ] display past days workouts
+- [x] display past days workouts
 - [ ] display total burned calories over a given duration
 
 Have a workout activity page that will begin to track the users activities. 
