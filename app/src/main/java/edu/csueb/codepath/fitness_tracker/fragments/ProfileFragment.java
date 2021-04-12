@@ -12,9 +12,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.parse.ParseUser;
+
+import edu.csueb.codepath.fitness_tracker.DateSummary;
+import edu.csueb.codepath.fitness_tracker.LoginActivity;
 import edu.csueb.codepath.fitness_tracker.R;
 
 public class ProfileFragment extends Fragment {
+
+    TextView tvName;
+    TextView tvUserHeight;
+    TextView tvUserWeight;
+    RecyclerView rvWorkouts;
+
+    TextView tvDate;
+    TextView tvWeather;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -34,13 +46,32 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView tvName;
-        TextView tvUserHeight;
-        TextView tvUserWeight;
-        RecyclerView rvWorkouts; // working on
+        tvName = view.findViewById(R.id.tvUserName);
+        tvUserHeight = view.findViewById(R.id.tvUserHeight);
+        tvUserWeight = view.findViewById(R.id.tvUserWeight);
+        rvWorkouts = view.findViewById(R.id.rvWorkouts);
+        tvDate = view.findViewById(R.id.tvDate);
+        tvWeather = view.findViewById(R.id.tvWeather);
 
-        tvName.setText(); // need info
-        tvUserHeight.setText(); // need info
-        tvUserWeight.setText(); // need info
+
+        public void getCurrentUser() {
+            // After login, Parse will cache it on disk, so
+            // we don't need to login every time we open this
+            // application
+            ParseUser currentUser = ParseUser.getCurrentUser();
+            if (currentUser != null) {
+                // do stuff with the user
+            } else {
+                // show the signup or login screen
+            }
+            tvName.setText(currentUser.getUsername());
+            tvUserHeight.setText(currentUser.getJSONObject("height")); // need info
+            tvUserWeight.setText(currentUser.getJSONObject("weight")); // need info
+
+            tvDate.setText(DateSummary.getDate());
+            tvWeather.setText(DateSummary.getWeather());
+        }
+
+
     }
 }
