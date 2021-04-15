@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,11 +41,14 @@ public class LearnFragment extends Fragment {
 
         listView = view.findViewById(R.id.listView);
         String [] categories = new String[] {
-                "Yoga", "Weight Training", "Crossfit", "Core Building"
+                "Before Workout Stretches", "Yoga", "Pilates", "HIIT Training", "Endurance Training",
+                "Aerobic Training", "Balance Training", "Weight Loss", "Weight Training", "Crossfit",
+                "Core Building", "Strength Building", "No Equipment Strength Training",
+                "After Workout Stretches", "After Workout Meditation",
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_list_item_1,
+                android.R.layout.simple_expandable_list_item_1,
                 android.R.id.text1, categories);
 
         listView.setAdapter(adapter);
@@ -52,14 +56,55 @@ public class LearnFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), rvLearnFragmentNotFrag.class);
                 if(i == 0) {
-                    Intent intent = new Intent(getContext(), rvLearnFragmentNotFrag.class);
+                    intent.putExtra("category", "StretchingBefore_query");
+                    startActivity(intent);
+                } else if (i==1) {
                     intent.putExtra("category", "Yoga_query");
                     startActivity(intent);
-
+                } else if (i==2) {
+                    intent.putExtra("category", "Pilates_query");
+                    startActivity(intent);
+                } else if (i==3) {
+                    intent.putExtra("category", "HIIT_query");
+                    startActivity(intent);
+                } else if (i==4) {
+                    intent.putExtra("category", "Endurance_query");
+                    startActivity(intent);
+                } else if (i==5) {
+                    intent.putExtra("category", "Aerobic_query");
+                    startActivity(intent);
+                } else if (i==6) {
+                    intent.putExtra("category", "Balance_query");
+                    startActivity(intent);
+                } else if (i==7) {
+                    intent.putExtra("category", "WeightLoss_query");
+                    startActivity(intent);
+                } else if (i==8) {
+                    intent.putExtra("category", "WeightTraining_query");
+                    startActivity(intent);
+                } else if (i==9) {
+                    intent.putExtra("category", "Crossfit_query");
+                    startActivity(intent);
+                } else if (i==10) {
+                    intent.putExtra("category", "CoreBuilding_query");
+                    startActivity(intent);
+                } else if (i==11) {
+                    intent.putExtra("category", "StrengthBuilding_query");
+                    startActivity(intent);
+                } else if (i==12) {
+                    intent.putExtra("category", "NoEquipmentStrength_query");
+                    startActivity(intent);
+                } else if (i==13) {
+                    intent.putExtra("category", "StretchingAfter_query");
+                    startActivity(intent);
+                } else if (i==14) {
+                    intent.putExtra("category", "MeditationAfter_query");
+                    startActivity(intent);
+                } else {
+                    Log.i("LearnFragment", "onItemClick: intent if check failed");
                 }
-
-                // String title = getIntent().getStringExtra("title");
             }
         });
     }

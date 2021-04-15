@@ -12,7 +12,7 @@ import com.google.android.youtube.player.YouTubePlayerView;
 
 public class TutorialPlayback extends YouTubeBaseActivity {
 
-    protected static final String YOUTUBE_API = "AIzaSyCpHJIJMmfO6rDXXMEl-qDVKjcc-gqx7YQ";
+    //private final String YOUTUBE_API = getString(R.string.YOUTUBE_API);
     YouTubePlayerView youTubePlayerView;
     TextView tvTitle;
     TextView tvDescription;
@@ -30,10 +30,10 @@ public class TutorialPlayback extends YouTubeBaseActivity {
         String description = getIntent().getStringExtra("description");
         String video_url = getIntent().getStringExtra("video_url");
 
-        youTubePlayerView.initialize(YOUTUBE_API, new YouTubePlayer.OnInitializedListener() {
+        youTubePlayerView.initialize(getString(R.string.YOUTUBE_API), new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                youTubePlayer.cueVideo(video_url);
+                youTubePlayer.loadVideo(video_url);
             }
 
             @Override
