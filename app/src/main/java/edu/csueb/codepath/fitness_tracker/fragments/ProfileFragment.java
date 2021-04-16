@@ -72,6 +72,5 @@ public class ProfileFragment extends Fragment {
             tvWeather.setText(DateSummary.getWeather());
         }
 
-
     }
 }

@@ -25,6 +25,7 @@ import org.w3c.dom.Text;
 import edu.csueb.codepath.fitness_tracker.DateSummary;
 import edu.csueb.codepath.fitness_tracker.LoginActivity;
 import edu.csueb.codepath.fitness_tracker.ProfileEdit;
+import edu.csueb.codepath.fitness_tracker.MainActivity;
 import edu.csueb.codepath.fitness_tracker.R;
 
 public class HomeFragment extends Fragment {
@@ -58,7 +59,6 @@ public class HomeFragment extends Fragment {
         tvWeather = view.findViewById(R.id.tvWeather);
         btnEdit = view.findViewById(R.id.btnEdit);
 
-
         public void getCurrentUser() {
             // After login, Parse will cache it on disk, so
             // we don't need to login every time we open this
@@ -80,8 +80,7 @@ public class HomeFragment extends Fragment {
                 Intent i = new Intent(HomeFragment.this, ProfileEdit.class);
                 startActivity(i);
             }
-        }
-
+        });
 
     }
 }
