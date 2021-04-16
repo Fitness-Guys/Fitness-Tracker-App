@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="preloaded_fonts" translatable="false">
+    <array name="preloaded_fonts" translatable="true">
         <item>@font/montserrat</item>
     </array>
 </resources>

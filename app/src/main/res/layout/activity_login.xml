@@ -33,12 +33,34 @@
         android:text="Login" />
 
     <EditText
+        android:id="@+id/etfirstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="New User: First Name" />
+
+
+    <EditText
+    android:id="@+id/etlastname"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="New User: lastname" />
+
+
+    <EditText
+        android:id="@+id/etage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="New User: Age" />
+
+
+
+    <EditText
         android:id="@+id/etNewWeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:hint="New User: Weight"
- />
+        android:hint="New User: Weight" />
+
 
     <EditText
         android:id="@+id/etNewHeight"
@@ -60,6 +82,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:onClick="signup"
+        android:onClick="createUser"
         android:text="Join" />
 </LinearLayout>
