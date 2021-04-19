@@ -19,10 +19,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -39,6 +42,7 @@ public class TrackFragment extends Fragment {
     private WorkoutListAdapter workoutListAdapter;
     List<String> workouts;  //is going to be used to store the workouts
     List<String> selected;  //is going to hold workouts that has been checked
+
     private Button startButton;
 
 
@@ -56,6 +60,7 @@ public class TrackFragment extends Fragment {
         CardView cardView = (CardView) view.findViewById(R.id.card_workoutTask);
 
         startButton = (Button) view.findViewById(R.id.btnStart);
+        workoutListAdapter = new WorkoutListAdapter(workouts, this);
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
@@ -66,8 +71,14 @@ public class TrackFragment extends Fragment {
                 //selected = workoutListAdapter.getChecked();
                 String str = join(", ", selected);
                  */
-                Intent i = new Intent(getActivity(), workout_timer.class);
-                startActivity(i);
+                selected = workoutListAdapter.getChecked();
+                Log.i(TAG, Arrays.toString(selected.toArray()));
+                if(selected.size() > 0){
+                    Intent i = new Intent(getActivity(), workout_timer.class);
+                    i.putExtra("Workout", (Serializable) selected);
+                    startActivity(i);
+                }
+                Toast.makeText(getContext(), "No workout selected!", Toast.LENGTH_SHORT).show();
             }
         });
 
