@@ -49,7 +49,7 @@ Video tutorials fragment.
 - [x] RecyclerView of the videos returning from category query
 - [x] Video Playback activity
 - [ ] Improve astetics of the activities to meet professional look
-- [ ] Autoplay videos in fullscreen mode
+- [X] Autoplay videos in new activity
 
 In workout screen
 - [x] display timer(to calc burned calories)
