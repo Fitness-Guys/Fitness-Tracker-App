@@ -77,8 +77,9 @@ public class TrackFragment extends Fragment {
                     Intent i = new Intent(getActivity(), workout_timer.class);
                     i.putExtra("Workout", (Serializable) selected);
                     startActivity(i);
+                }else {
+                    Toast.makeText(getContext(), "No workout selected!", Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(getContext(), "No workout selected!", Toast.LENGTH_SHORT).show();
             }
         });
 
