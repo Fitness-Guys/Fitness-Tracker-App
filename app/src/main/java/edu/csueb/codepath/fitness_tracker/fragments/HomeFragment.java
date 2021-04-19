@@ -18,13 +18,10 @@ import android.widget.Toast;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import edu.csueb.codepath.fitness_tracker.DateSummary;
 import edu.csueb.codepath.fitness_tracker.LoginActivity;
-import edu.csueb.codepath.fitness_tracker.ProfileEdit;
 import edu.csueb.codepath.fitness_tracker.MainActivity;
 import edu.csueb.codepath.fitness_tracker.R;
 
@@ -59,25 +56,16 @@ public class HomeFragment extends Fragment {
         tvWeather = view.findViewById(R.id.tvWeather);
         btnEdit = view.findViewById(R.id.btnEdit);
 
-        public void getCurrentUser() {
-            // After login, Parse will cache it on disk, so
-            // we don't need to login every time we open this
-            // application
-            ParseUser currentUser = ParseUser.getCurrentUser();
-            if (currentUser != null) {
-                // do stuff with the user
-            } else {
-                // show the signup or login screen
-            }
-            tvUserName.setText(currentUser.getUsername()); // need info
-            tvDate.setText(DateSummary.getDate());
-            tvWeather.setText(DateSummary.getWeather());
-        }
-
+    /*
+        tvUserName.setText(); // need info
+        tvDate.setText(DateSummary.getDate());
+        tvWeather.setText(DateSummary.getWeather());
+     */
+        
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomeFragment.this, ProfileEdit.class);
+                Intent i = new Intent(getContext(), MainActivity.class);
                 startActivity(i);
             }
         });
