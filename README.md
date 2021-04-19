@@ -33,7 +33,7 @@ User to login
 - [x] password
 
 Profile Screen
-- [] username, ht, weight(maybe?), fitness level 
+- [x] username, ht, weight(maybe?)
 
 User to home screen
 - [x] display past days workouts
@@ -245,7 +245,8 @@ In workout screen
 
 ```
      
-      
+### Progress Gif
+![](progress.gif)
 
 
 #### [OPTIONAL:] Existing API Endpoints
