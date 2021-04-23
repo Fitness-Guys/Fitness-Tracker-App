@@ -30,6 +30,7 @@ public class workout_timer extends FragmentActivity {
     private Button reset;
     private Button finishWorkout;
     private long pauseOffset;
+    private int currentTime;    //will be used to store the current time on the chronometer
     public List<String> workouts;
     private TextView workoutTitle;
 
@@ -95,6 +96,9 @@ public class workout_timer extends FragmentActivity {
             chronometer.stop();
             pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
             running = false;
+            long elapsedMili = SystemClock.elapsedRealtime()
+                    - chronometer.getBase();
+            currentTime = Math.round(elapsedMili/1000);
             start_stop.setText("start");
             start_stop.setBackgroundTintList(getResources().getColorStateList(R.color.pastelgreen));
         }
@@ -108,7 +112,27 @@ public class workout_timer extends FragmentActivity {
     }
 
     public void finishWorkout(View view){
-        long time = chronometer.getBase() - pauseOffset;
-        Log.e("workout_timer", String.valueOf(time));
+        //https://www.semicolonworld.com/question/46673/android-get-time-of-chronometer-widget
+
+        //int seconds = Math.round(time/1000);
+        int seconds;
+        if(!running){
+            seconds = currentTime;
+            Toast.makeText(this,
+                    "Elapsed milliseconds: " + seconds, Toast.LENGTH_SHORT).show();
+
+        }else{
+            //long time = SystemClock.elapsedRealtime() - pauseOffset;
+            //Log.e("workout_timer", String.valueOf(time));
+            long elapsedMillis = SystemClock.elapsedRealtime()
+                    - chronometer.getBase();
+            seconds = Math.round(elapsedMillis/1000);
+            Log.e("workout_timer", String.valueOf(seconds));
+
+        }
+
+
+        Toast.makeText(this,
+                "Elapsed seconds: " + seconds, Toast.LENGTH_SHORT).show();
     }
 }
