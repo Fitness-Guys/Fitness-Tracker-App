@@ -48,4 +48,5 @@ public class ProfileEdit extends ProfileFragment {
         etWeight = view.findViewById(R.id.etWeight);
         btnUpdate = view.findViewById(R.id.btnUpdate);
     }
+
 }

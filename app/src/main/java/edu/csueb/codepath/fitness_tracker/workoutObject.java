@@ -23,7 +23,7 @@ public class workoutObject extends ParseObject {
     }
 
     public void setCalories(int cal){
-        
+
     }
 
 

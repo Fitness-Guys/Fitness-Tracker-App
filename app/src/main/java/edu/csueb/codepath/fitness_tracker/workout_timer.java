@@ -134,5 +134,6 @@ public class workout_timer extends FragmentActivity {
 
         Toast.makeText(this,
                 "Elapsed seconds: " + seconds, Toast.LENGTH_SHORT).show();
+
     }
 }
