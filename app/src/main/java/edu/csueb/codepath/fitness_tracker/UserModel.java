@@ -14,7 +14,7 @@ public class UserModel extends ParseObject {
     int weight;
     int height;
     int age;
-
+    String objectId;
     String username;
 
     @Override
@@ -30,17 +30,17 @@ public class UserModel extends ParseObject {
                 '}';
     }
 
-    String objectId;
+
 
 
 
     public String getObjectId(){
-        return getString("objectId").toString();
+        return "ObjectId";//getString("objectId").toString();
     }
 
 
     public String getUsername() {
-        return getString("username");
+        return "getString(username";
     }
 
     public void setUsername(String username) {
@@ -50,7 +50,7 @@ public class UserModel extends ParseObject {
 
 
     public String getFirstname() {
-        return getString("firstname");
+        return "First Name"; //getString("firstname");
     }
 
     public void setFirstname(String firstname) {
