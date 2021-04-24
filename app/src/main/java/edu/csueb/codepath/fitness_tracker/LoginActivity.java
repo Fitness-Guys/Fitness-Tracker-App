@@ -55,12 +55,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        btnSignup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(LoginActivity.this,"Sign up button clicked", Toast.LENGTH_SHORT).show();
-                goSignupActivity();
-            }
+        btnSignup.setOnClickListener(view -> {
+            Toast.makeText(LoginActivity.this,"Sign up button clicked", Toast.LENGTH_SHORT).show();
+            goSignupActivity();
         });
         
     }
@@ -90,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent(this, SignupActivity.class);
         startActivity(i);
         finish();
+
     }
 
 

@@ -66,7 +66,6 @@ public class SignupActivity extends AppCompatActivity {
                     public void done(ParseException e) {
                         if (e == null) {
                             Log.e(TAG, " Success on Sign up!", e);
-                            return;
                         } else {
                             ParseUser.logOut();
                             Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
