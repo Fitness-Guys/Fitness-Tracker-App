@@ -57,7 +57,13 @@ public class LoginActivity extends AppCompatActivity {
 
         btnSignup.setOnClickListener(view -> {
             Toast.makeText(LoginActivity.this,"Sign up button clicked", Toast.LENGTH_SHORT).show();
-            goSignupActivity();
+//            goSignupActivity();
+//            Intent i = new Intent(LoginActivity.this, SignupActivity.class);
+//            startActivity(i);
+//            finish();
+
+
+
         });
         
     }
@@ -84,9 +90,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void goSignupActivity(){
-        Intent i = new Intent(this, SignupActivity.class);
-        startActivity(i);
-        finish();
+
 
     }
 
