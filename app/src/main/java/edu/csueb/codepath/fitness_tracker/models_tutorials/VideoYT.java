@@ -3,15 +3,18 @@ package edu.csueb.codepath.fitness_tracker.models_tutorials;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class VideoYT {
 
     @SerializedName("id")
     @Expose
-    private VideoID id;
+    protected VideoID id;
 
     @SerializedName("snippet")
     @Expose
-    private SnippetYT snippet;
+    protected SnippetYT snippet;
 
     public VideoYT() { }
 

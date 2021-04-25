@@ -14,8 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fitness_Tracker">
         <activity
-            android:name=".TutorialPlayback">
-            <!--android:screenOrientation="landscape"-->
+            android:name=".TutorialPlayback"
+            android:screenOrientation="portrait">
         </activity>
         <activity android:name=".fragments.rvLearnFragmentNotFrag"></activity>
         <activity android:name=".MainActivity"></activity>

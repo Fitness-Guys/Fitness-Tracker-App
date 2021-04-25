@@ -3,20 +3,24 @@ package edu.csueb.codepath.fitness_tracker.models_tutorials;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+import java.text.DateFormat;
+import java.util.Date;
+
+@Parcel
 public class SnippetYT {
 
-    @SerializedName("publishedAt")
-    @Expose
-    private String publishedAt;
+    protected Date publishedAt;
     @SerializedName("title")
     @Expose
-    private String title;
+    protected String title;
     @SerializedName("description")
     @Expose
-    private String description;
+    protected String description;
     @SerializedName("thumbnails")
     @Expose
-    private ThumbnailYT thumbnails;
+    protected ThumbnailYT thumbnails;
 
     public SnippetYT() { }
 
@@ -26,18 +30,18 @@ public class SnippetYT {
         this.thumbnails = thumbnails;
     }
 
-    public SnippetYT(String publishedAt, String title, String description, ThumbnailYT thumbnails) {
+    public SnippetYT(Date publishedAt, String title, String description, ThumbnailYT thumbnails) {
         this.publishedAt = publishedAt;
         this.title = title;
         this.description = description;
         this.thumbnails = thumbnails;
     }
 
-    public String getPublishedAt() {
+    public Date getPublishedAt() {
         return publishedAt;
     }
 
-    public void setPublishedAt(String publishedAt) {
+    public void setPublishedAt(Date publishedAt) {
         this.publishedAt = publishedAt;
     }
 
