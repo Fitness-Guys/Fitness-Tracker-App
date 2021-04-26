@@ -2,10 +2,13 @@
 
 import java.net.URI;
 import java.net.URLEncoder;
+/*
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+
+ */
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Base64.Encoder;
@@ -27,8 +30,8 @@ import javax.crypto.spec.SecretKeySpec;
  * </pre>
  *
  */
-package edu.csueb.codepath.fitness_tracker;
-
+//package edu.csueb.codepath.fitness_tracker;
+/*
 public class WeatherYdnJava {
     public static void main(String[] args) throws Exception {
 
@@ -96,3 +99,6 @@ public class WeatherYdnJava {
         System.out.println(response.body());
     }
 }
+
+
+ */

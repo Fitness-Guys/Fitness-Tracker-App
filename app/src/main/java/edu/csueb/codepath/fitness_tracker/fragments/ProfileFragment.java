@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.parse.ParseUser;
 
 import edu.csueb.codepath.fitness_tracker.DateSummary;
-import edu.csueb.codepath.fitness_tracker.LoginActivity;
 import edu.csueb.codepath.fitness_tracker.R;
 
 public class ProfileFragment extends Fragment {
@@ -53,7 +52,9 @@ public class ProfileFragment extends Fragment {
         tvDate = view.findViewById(R.id.tvDate);
         tvWeather = view.findViewById(R.id.tvWeather);
 
+        getCurrentUser();
 
+    }
         public void getCurrentUser() {
             // After login, Parse will cache it on disk, so
             // we don't need to login every time we open this
@@ -65,12 +66,10 @@ public class ProfileFragment extends Fragment {
                 // show the signup or login screen
             }
             tvName.setText(currentUser.getUsername());
-            tvUserHeight.setText(currentUser.getJSONObject("height")); // need info
-            tvUserWeight.setText(currentUser.getJSONObject("weight")); // need info
+            tvUserHeight.setText(String.valueOf(currentUser.get("height"))); // need info
+            tvUserWeight.setText(String.valueOf(currentUser.get("weight"))); // need info
 
             tvDate.setText(DateSummary.getDate());
             tvWeather.setText(DateSummary.getWeather());
         }
-
-    }
 }
