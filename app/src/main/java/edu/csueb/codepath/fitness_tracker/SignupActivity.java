@@ -2,6 +2,7 @@ package edu.csueb.codepath.fitness_tracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,11 +46,13 @@ public class SignupActivity extends AppCompatActivity {
         username = findViewById(R.id.etUsername);
         password = findViewById(R.id.etPassword);
 
-        submit = findViewById(R.id.btnsubmit);
+        submit = findViewById(R.id.btnSubmit);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.e(TAG, "Successful submit click");
+
                 Toast.makeText(SignupActivity.this, "Clicked the submit btn", Toast.LENGTH_SHORT).show();
 
                 ParseUser user = new ParseUser();
@@ -58,78 +61,54 @@ public class SignupActivity extends AppCompatActivity {
                 user.setEmail(emailAddress.getText().toString());
                 user.put("firstname", firstName.getText().toString());
                 user.put("lastname", lastName.getText().toString());
-                user.put("height", height.getText().toString());
-                user.put("weight", weight.getText().toString());
-                user.put("age", age.getText().toString());
+                user.put("height", Integer.parseInt(height.getText().toString()));
+                user.put("weight", Integer.parseInt(weight.getText().toString()));
+                user.put("age", Integer.parseInt(age.getText().toString()));
+
                 user.signUpInBackground(new SignUpCallback() {
                     @Override
                     public void done(ParseException e) {
-                        if (e == null) {
-                            Log.e(TAG, " Success on Sign up!", e);
+                        if (e != null) {
+                            Log.e(TAG, "User create unsuccessful",e);
+                            Toast.makeText(SignupActivity.this, "Log in is unsuccessful", Toast.LENGTH_LONG).show();
                             return;
+
                         } else {
-                            ParseUser.logOut();
-                            Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                            Log.i(TAG, " Success on Sign up!");
+                            Toast.makeText(SignupActivity.this, "Log in is Successful", Toast.LENGTH_LONG).show();
+                            goMainActivity();
                         }
                     }
                 });
-                back.setOnClickListener(v -> finish());
+
+
+
+
 
 
             }});
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(SignupActivity.this, "button clicked on back", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(SignupActivity.this, LoginActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
 
   } // on Create
+    private void goMainActivity() {
+        Intent i = new Intent(SignupActivity.this, MainActivity.class);
+        startActivity(i);
+        finish();
+    }
 
 } // class
 
 
-/**
- *  <EditText
- *         android:id="@+id/etfirstname"
- *         android:layout_width="match_parent"
- *         android:layout_height="wrap_content"
- *         android:hint="New User: First Name" />
- *
- *
- *     <EditText
- *     android:id="@+id/etlastname"
- *     android:layout_width="match_parent"
- *     android:layout_height="wrap_content"
- *     android:hint="New User: lastname" />
- *
- *
- *     <EditText
- *         android:id="@+id/etage"
- *         android:layout_width="match_parent"
- *         android:layout_height="wrap_content"
- *         android:hint="New User: Age" />
- *
- *
- *
- *     <EditText
- *         android:id="@+id/etNewWeight"
- *         android:layout_width="match_parent"
- *         android:layout_height="wrap_content"
- *         android:layout_marginTop="4dp"
- *         android:hint="New User: Weight" />
- *
- *
- *     <EditText
- *         android:id="@+id/etNewHeight"
- *         android:layout_width="match_parent"
- *         android:layout_height="wrap_content"
- *         android:layout_marginTop="4dp"
- *         android:hint="New User: Height" />
- *
- *     <EditText
- *         android:id="@+id/etEmailAddress"
- *         android:layout_width="match_parent"
- *         android:layout_height="wrap_content"
- *         android:hint="New User: Email Address"
- *         android:inputType="textEmailAddress"/>
- *
- */
 
 
 

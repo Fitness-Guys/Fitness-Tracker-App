@@ -30,18 +30,21 @@
         android:id="@+id/etWeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:hint="Weight" />
 
     <EditText
         android:id="@+id/etHeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:hint="Height" />
 
     <EditText
         android:id="@+id/etAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:hint="Age" />
 
     <EditText
@@ -55,6 +58,7 @@
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
         android:hint="Password" />
 
     <Button
@@ -63,7 +67,7 @@
         android:layout_height="wrap_content"
         android:text="Submit" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
