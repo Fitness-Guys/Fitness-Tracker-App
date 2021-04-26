@@ -3,11 +3,14 @@ package edu.csueb.codepath.fitness_tracker.models_tutorials;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class ThumbnailYT {
 
     @SerializedName("medium")
     @Expose
-    private MediumThumbnail medium;
+    protected MediumThumbnail medium;
 
     public ThumbnailYT() { }
 
@@ -23,11 +26,12 @@ public class ThumbnailYT {
         this.medium = medium;
     }
 
-    public class MediumThumbnail {
+    @Parcel
+    public static class MediumThumbnail {
 
         @SerializedName("url")
         @Expose
-        private String url;
+        protected String url;
 
         public MediumThumbnail() { }
 

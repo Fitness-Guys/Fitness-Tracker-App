@@ -3,11 +3,14 @@ package edu.csueb.codepath.fitness_tracker.models_tutorials;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class VideoID {
 
     @SerializedName("videoId")
     @Expose
-    private String videoId;
+    protected String videoId;
 
     public VideoID() { }
 
