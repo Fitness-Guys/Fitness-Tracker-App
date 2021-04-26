@@ -1,5 +1,6 @@
 package edu.csueb.codepath.fitness_tracker;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -17,6 +18,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
@@ -118,9 +120,6 @@ public class workout_timer extends FragmentActivity {
         int seconds;
         if(!running){
             seconds = currentTime;
-            Toast.makeText(this,
-                    "Elapsed milliseconds: " + seconds, Toast.LENGTH_SHORT).show();
-
         }else{
             //long time = SystemClock.elapsedRealtime() - pauseOffset;
             //Log.e("workout_timer", String.valueOf(time));
@@ -131,8 +130,12 @@ public class workout_timer extends FragmentActivity {
 
         }
 
+        Intent i = new Intent(this, workout_summary.class);
+        i.putExtra("Workout2", (Serializable) workouts);
+        i.putExtra("finalTime", seconds);
+        startActivity(i);
+        //Toast.makeText(this, "Elapsed seconds: " + seconds, Toast.LENGTH_SHORT).show();
 
-        Toast.makeText(this,
-                "Elapsed seconds: " + seconds, Toast.LENGTH_SHORT).show();
+
     }
 }

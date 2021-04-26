@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import edu.csueb.codepath.fitness_tracker.R;
+import edu.csueb.codepath.fitness_tracker.UserModel;
 
 public class ProfileFragment extends Fragment {
 
@@ -38,6 +39,9 @@ public class ProfileFragment extends Fragment {
         TextView tvUserHeight;
         TextView tvUserWeight;
         RecyclerView rvWorkouts; // working on
+
+        UserModel profile = new UserModel(); // only firstname is populated
+
 
         /*
         tvName.setText(); // need info

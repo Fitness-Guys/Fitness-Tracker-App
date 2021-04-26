@@ -2,6 +2,13 @@
     <string name="app_name">Fitness Tracker</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_workout_summary">workout_summary</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+
     <string name="YOUTUBE_API">AIzaSyCpHJIJMmfO6rDXXMEl-qDVKjcc-gqx7YQ</string>
     <string name="Published">\Published: \</string>
 </resources>

@@ -23,8 +23,31 @@ public class workoutObject extends ParseObject {
     }
 
     public void setCalories(int cal){
-        
+        calories = cal;
     }
 
+    public void setDuration(String dur){
+        duration = dur;
+    }
+    public void setWorkoutType(String wt){
+        WorkoutType = wt;
+    }
 
+    public Date getStart(){return start;}
+
+    public Date getEnd() {
+        return end;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public String getWorkoutType() {
+        return WorkoutType;
+    }
 }

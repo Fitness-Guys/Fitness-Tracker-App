@@ -15,7 +15,7 @@ import com.parse.ParseUser;
 import edu.csueb.codepath.fitness_tracker.fragments.ProfileFragment;
 
 public class ProfileEdit extends ProfileFragment {
-
+    UserModel profile;
     TextView etProfileImage;
     TextView etUsername;
     TextView etEmail;
@@ -48,4 +48,5 @@ public class ProfileEdit extends ProfileFragment {
         etWeight = view.findViewById(R.id.etWeight);
         btnUpdate = view.findViewById(R.id.btnUpdate);
     }
+
 }
