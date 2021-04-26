@@ -1,11 +1,13 @@
 package edu.csueb.codepath.fitness_tracker.models_tutorials;
 
+import org.parceler.Parcel;
+
 public class TutorialType {
 
-    String Title;
-    String Description;
-    String video_URL;
-    String image_URL;
+    protected String Title;
+    protected String Description;
+    protected String video_URL;
+    protected String image_URL;
 
     public TutorialType(String title, String description, String video_URL) {
         Title = title;

@@ -50,8 +50,9 @@ Video tutorials fragment.
 - [x] Youtube API calls and create model data
 - [x] RecyclerView of the videos returning from category query
 - [x] Video Playback activity
-- [ ] Improve astetics of the activities to meet professional look
+- [x] Improve astetics of the activities to meet professional look
 - [X] Autoplay videos in new activity
+
 
 In workout screen
 - [x] display timer(to calc burned calories)
