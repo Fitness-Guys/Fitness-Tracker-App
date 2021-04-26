@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvIntro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Good Job!"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvWorkoutTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvIntro"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Workout Summary"
+        android:textAlignment="viewStart"
+        android:textColor="@color/bottom_navigation_selector"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/ivPerson"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/tvWorkoutTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/bottom_navigation_selector"
+        android:backgroundTint="#FFFFFF"
+        android:tint="@color/bottom_navigation_selector"
+        android:src="@drawable/workout_man" />
+
+    <TextView
+        android:id="@+id/tvWorkout_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivPerson"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@+id/ivPerson"
+        android:fontFamily="@font/montserrat"
+        android:text="Workout"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/ivTime"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/ivPerson"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:tint="@color/bottom_navigation_selector"
+        android:src="@drawable/ic_time" />
+
+    <TextView
+        android:id="@+id/tvWorkoutTimeSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivTime"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@+id/ivTime"
+        android:text="Time"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/ivBurn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/ivTime"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:tint="@color/bottom_navigation_selector"
+        android:src="@drawable/ic_burned" />
+
+    <TextView
+        android:id="@+id/tvCaloriesDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivBurn"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_toEndOf="@+id/ivBurn"
+        android:text="Calories Burned"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnFinish"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/bottom_navigation_selector"
+        android:elevation="4dp"
+        android:text="Close"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvWorkoutTItle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivPerson"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/ivPerson"
+        android:text="Workouts:"
+        android:textColor="@color/bottom_navigation_selector"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvTimeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivTime"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/ivTime"
+        android:text="Time:"
+        android:textColor="@color/bottom_navigation_selector" />
+
+    <TextView
+        android:id="@+id/tvCaloriesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivBurn"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/ivBurn"
+        android:text="Calories Burned:"
+        android:textColor="@color/bottom_navigation_selector" />
+
+</RelativeLayout>

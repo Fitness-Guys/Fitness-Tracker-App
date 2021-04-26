@@ -11,7 +11,7 @@
         android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="100dp"
-        tools:srcCompat="@drawable/dumbell" />
+        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvTitle"
