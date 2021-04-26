@@ -1,5 +1,6 @@
 package edu.csueb.codepath.fitness_tracker;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,14 +8,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import edu.csueb.codepath.fitness_tracker.fragments.HomeFragment;
 
 public class workout_summary extends FragmentActivity {
 
@@ -24,6 +30,7 @@ public class workout_summary extends FragmentActivity {
     private Button close;
     public List<String> workouts;
     public double calories;
+    private int numOfActivities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,7 @@ public class workout_summary extends FragmentActivity {
         timeDisplay = (TextView) findViewById(R.id.tvWorkoutTimeSummary);
         caloriesDisplay = (TextView) findViewById(R.id.tvCaloriesDisplay);
         workouts = (List<String>) getIntent().getSerializableExtra("Workout2");
+        numOfActivities = workouts.size();
 
         String workoutTypeString = createWorkoutString(workouts);
         workoutType.setText(workoutTypeString);
@@ -42,11 +50,16 @@ public class workout_summary extends FragmentActivity {
         String time = createTimerString(finalTime);
         timeDisplay.setText(String.valueOf(time));
 
+        calories = calculateCalories(finalTime, numOfActivities);
+        caloriesDisplay.setText(String.valueOf(calories));
+
         close = (Button) findViewById(R.id.btnFinish);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calories = calculateCalories(finalTime);
+
+                Intent i = new Intent(workout_summary.this, MainActivity.class);
+                startActivity(i);
             }
         });
 
@@ -95,18 +108,50 @@ public class workout_summary extends FragmentActivity {
         return time;
     }
 
-    private double calculateCalories(int finalTime){
-        double cal = 0.0;
+    private double calculateCalories(int finalTime, int numOfActivities){
+        /* code used to query for uses weight is not currently working
         ParseQuery<ParseUser> query = ParseUser.getQuery();
         query.whereEqualTo("username", ParseUser.getCurrentUser());
         query.findInBackground((users, e) ->{
             if(e==null){
                 Log.d("workout_summary", "query success!");
-                //Log.d("workout_summary", users.get);    //figure out how to get information.
+                Log.d("workout_summary", ParseUser.);    //figure out how to get information.
             } else {
                 Log.e("workout_summary", "query FAILED");
             }
         });
+         */
+        double cal = 0.0;
+        int MET = 0;    //MET = metabolic equivalent for task
+        switch (numOfActivities){
+            case 1:
+                MET =  1;
+                break;
+            case 2:
+                MET = 2;
+                break;
+            case 3:
+                MET = 3;
+                break;
+            case 4:
+                MET = 4;
+                break;
+            case 5:
+                MET = 5;
+                break;
+            default:
+                return 0;
+        }
+
+        double time = ((double) finalTime) / ((double) 60);
+        //double time = (double) (finalTime / 60);
+        cal = (time)*((double) MET*3.5*90.7185)/200; //calculates the calories burned
+                                                    //this will be using default 200lb for weight variable
+                                                    //which is equal to 90.7185kg
+        //Toast.makeText(workout_summary.this, String.valueOf(time), Toast.LENGTH_SHORT).show();
+
+        BigDecimal bd = new BigDecimal(cal).setScale(2, RoundingMode.HALF_UP);
+        cal = bd.doubleValue();
 
         return cal;
     }

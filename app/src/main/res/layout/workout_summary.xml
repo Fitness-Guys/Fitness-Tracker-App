@@ -112,4 +112,38 @@
         android:text="Close"
         android:textColor="#FFFFFF" />
 
+    <TextView
+        android:id="@+id/tvWorkoutTItle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivPerson"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/ivPerson"
+        android:text="Workouts:"
+        android:textColor="@color/bottom_navigation_selector"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvTimeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivTime"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/ivTime"
+        android:text="Time:"
+        android:textColor="@color/bottom_navigation_selector" />
+
+    <TextView
+        android:id="@+id/tvCaloriesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivBurn"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/ivBurn"
+        android:text="Calories Burned:"
+        android:textColor="@color/bottom_navigation_selector" />
+
 </RelativeLayout>
