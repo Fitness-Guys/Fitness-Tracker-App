@@ -106,6 +106,7 @@ public class TrackFragment extends Fragment {
         workouts.add("Yoga");
 
 
+
         workoutListAdapter.setWorkouts(workouts);
     }
 

@@ -54,7 +54,10 @@ public class ProfileFragment extends Fragment {
 
         getCurrentUser();
 
+        //UserModel profile = new UserModel(); // only firstname is populated
+
     }
+
         public void getCurrentUser() {
             // After login, Parse will cache it on disk, so
             // we don't need to login every time we open this
