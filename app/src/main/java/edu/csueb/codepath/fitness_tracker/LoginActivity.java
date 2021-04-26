@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        ParseUser.logOut();
+
         if(ParseUser.getCurrentUser() != null){
             goMainActivity();
         }

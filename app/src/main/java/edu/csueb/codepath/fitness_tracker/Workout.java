@@ -6,7 +6,7 @@ import com.parse.ParseObject;
 import java.sql.Date;
 
 @ParseClassName("Workout")
-public class workoutObject extends ParseObject {
+public class Workout extends ParseObject {
 
     private String objectID;
     private Date start;
@@ -15,7 +15,7 @@ public class workoutObject extends ParseObject {
     private String duration;
     private String WorkoutType;
 
-    public workoutObject(){ }
+    public Workout(){ }
 
     public void setDates(Date s, Date e){
         start = s;

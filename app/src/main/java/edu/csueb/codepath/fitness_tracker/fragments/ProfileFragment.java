@@ -40,7 +40,7 @@ public class ProfileFragment extends Fragment {
         TextView tvUserWeight;
         RecyclerView rvWorkouts; // working on
 
-        UserModel profile = new UserModel(); // only firstname is populated
+        //UserModel profile = new UserModel(); // only firstname is populated
 
 
         /*
