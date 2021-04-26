@@ -42,8 +42,8 @@ User to home screen
 Have a workout activity page that will begin to track the users activities. 
 - [x] This will have a checkbox for the premade list of exercises. 
 - [X] a start/stop button(starts timer)
-- [ ] Finish button should go to summary
-- [ ] In summary, calculated calories should be displayed
+- [x] Finish button should go to summary
+- [x] In summary, calculated calories should be displayed
     
 Video tutorials fragment.
 - [x] ListView displaying categories.
