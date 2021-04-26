@@ -26,13 +26,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    sourceSets{
-        main {
-            java {
-                exclude ''
-            }
-        }
-    }
 }
 
 dependencies {
@@ -63,6 +56,5 @@ dependencies {
     // Glide v4 uses this new annotation processor -- see https://bumptech.github.io/glide/doc/generatedapi.html
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
-    implementation 'org.parceler:parceler-api:1.1.12'
-    annotationProcessor 'org.parceler:parceler:1.1.12'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 }
