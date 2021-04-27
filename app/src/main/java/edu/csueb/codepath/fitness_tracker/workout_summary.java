@@ -147,19 +147,19 @@ public class workout_summary extends FragmentActivity {
         int MET = 0;    //MET = metabolic equivalent for task
         switch (numOfActivities){
             case 1:
-                MET =  1;
+                MET =  4;
                 break;
             case 2:
-                MET = 2;
+                MET = 5;
                 break;
             case 3:
-                MET = 3;
+                MET = 7;
                 break;
             case 4:
-                MET = 4;
+                MET = 8;
                 break;
             case 5:
-                MET = 5;
+                MET = 8;
                 break;
             default:
                 return 0;
