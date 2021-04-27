@@ -138,16 +138,8 @@ public class workout_summary extends FragmentActivity {
     }
 
     private double calculateCalories(int finalTime, int numOfActivities){
-        // code used to query for uses weight is not currently working
-        /*
-        ParseQuery<ParseUser> query = ParseUser.getQuery();
-        query.whereEqualTo("username", ParseUser.getCurrentUser());
-
-        Log.e("workout_summary", String.valueOf(ParseUser.getCurrentUser()));
-         */
 
         ParseUser user = ParseUser.getCurrentUser();
-        //Log.d("workout_summary", String.valueOf(user.get("weight")));    //figure out how to get information.
         Integer w = (Integer) user.get("weight");
 
 
@@ -155,19 +147,19 @@ public class workout_summary extends FragmentActivity {
         int MET = 0;    //MET = metabolic equivalent for task
         switch (numOfActivities){
             case 1:
-                MET =  1;
+                MET =  4;
                 break;
             case 2:
-                MET = 2;
+                MET = 5;
                 break;
             case 3:
-                MET = 3;
+                MET = 7;
                 break;
             case 4:
-                MET = 4;
+                MET = 8;
                 break;
             case 5:
-                MET = 5;
+                MET = 8;
                 break;
             default:
                 return 0;
