@@ -1,53 +1,67 @@
 package edu.csueb.codepath.fitness_tracker;
 
 import com.parse.ParseClassName;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
-import java.sql.Date;
+import java.util.Date;
+
 
 @ParseClassName("Workout")
 public class Workout extends ParseObject {
 
-    private String objectID;
-    private Date start;
-    private Date end;
-    private int calories;
-    private String duration;
-    private String WorkoutType;
+
+    public static final String KEY_START = "start";
+    public static final String KEY_END = "end";
+    public static final String KEY_CALORIES = "calories";
+    public static final String KEY_DURATION = "duration";
+    public static final String KEY_WORKOUT_TYPE = "WorkoutType";
+    public static final String KEY_CREATE_AT = "createdAt";
+    public static final String KEY_USER = "user";
 
     public Workout(){ }
 
-    public void setDates(Date s, Date e){
-        start = s;
-        end = e;
+    public void setStartDate(Date s){
+        put(KEY_START, s);
     }
 
-    public void setCalories(int cal){
-        calories = cal;
+    public void setKeyEnd(Date end){
+        put(KEY_END, end);
+    }
+
+    public void setCalories(double cal){
+        put(KEY_CALORIES, cal);
     }
 
     public void setDuration(String dur){
-        duration = dur;
+        put(KEY_DURATION, dur);
     }
     public void setWorkoutType(String wt){
-        WorkoutType = wt;
+        put(KEY_WORKOUT_TYPE, wt);
+    }
+    public void setKeyUser(ParseUser parseUser){
+        put(KEY_USER, parseUser);
     }
 
-    public Date getStart(){return start;}
+    /////////
 
-    public Date getEnd() {
-        return end;
+    public ParseFile getStart(){return getParseFile(KEY_START);}
+
+    public ParseFile getEnd() {
+        return getParseFile(KEY_END);
     }
 
-    public int getCalories() {
-        return calories;
+    public ParseFile getCalories() {
+        return getParseFile(KEY_CALORIES);
     }
 
-    public String getDuration() {
-        return duration;
+    public ParseFile getDuration() {
+        return getParseFile(KEY_DURATION);
     }
 
-    public String getWorkoutType() {
-        return WorkoutType;
+    public ParseFile getWorkoutType() {
+        return getParseFile(KEY_WORKOUT_TYPE);
     }
+
 }
