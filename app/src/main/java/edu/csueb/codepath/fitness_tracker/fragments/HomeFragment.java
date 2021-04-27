@@ -2,13 +2,11 @@ package edu.csueb.codepath.fitness_tracker.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,11 +30,10 @@ public class HomeFragment extends Fragment {
 
     TextView tvUserName;
     TextView tvDate;
-    TextView tvWeather;
+    TextView tvActivity;
     TextView tvCalories;
     ImageButton btnEdit;
     RecyclerView rvWorkouts;
-
 
     List workout;
     WorkoutListAdapter adapter;
@@ -62,10 +59,9 @@ public class HomeFragment extends Fragment {
 
         tvUserName = view.findViewById(R.id.tvUserName);
         tvDate = view.findViewById(R.id.tvDate);
-        tvWeather = view.findViewById(R.id.tvWeather);
-        btnEdit = view.findViewById(R.id.btnEdit);
         rvWorkouts = view.findViewById(R.id.rvWorkouts);
         tvCalories = view.findViewById(R.id.tvCalories);
+        tvActivity = view.findViewById(R.id.tvActivity);
 
         getCurrentUser();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Workout");
@@ -87,7 +83,6 @@ public class HomeFragment extends Fragment {
         });
 
          */
-
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,9 +112,25 @@ public class HomeFragment extends Fragment {
         } else {
             // show the signup or login screen
         }
-        this.tvUserName.setText(currentUser.getUsername()); // need info
+        this.tvUserName.setText("Hello " + (currentUser.getUsername()));
         this.tvDate.setText(DateSummary.getDate());
-        this.tvWeather.setText(DateSummary.getWeather());
+    }
+
+    public void readObject() {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Workout");
+
+        // The query will search for a ParseObject, given its objectId.
+        // When the query finishes running, it will invoke the GetCallback
+        // with either the object, or the exception thrown
+        query.getInBackground("<PARSE_OBJECT_ID>", (object, e) -> {
+            if (e == null) {
+                //Object was successfully retrieved
+                tvCalories.setText("calories");
+                tvActivity.setText("duration");
+            } else {
+                // something went wrong
+            }
+        });
     }
 
 }

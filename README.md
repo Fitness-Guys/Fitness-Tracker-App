@@ -37,7 +37,7 @@ Profile Screen
 
 User to home screen
 - [x] display past days workouts
-- [ ] display total burned calories over a given duration
+- [x] display total burned calories over a given duration
 
 Have a workout activity page that will begin to track the users activities. 
 - [x] This will have a checkbox for the premade list of exercises. 
@@ -57,7 +57,7 @@ Video tutorials fragment.
 In workout screen
 - [x] display timer(to calc burned calories)
 - [x] display select workout
-- [ ] workout completed button -> display calorie and time results. W/ a positive message. Close screen back to home page.
+- [x] workout completed button -> display calorie and time results. W/ a positive message. Close screen back to home page.
  
 
 
