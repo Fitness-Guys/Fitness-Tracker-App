@@ -14,9 +14,11 @@ import androidx.fragment.app.FragmentActivity;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Date;
 import java.util.List;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
@@ -24,6 +26,7 @@ import edu.csueb.codepath.fitness_tracker.fragments.HomeFragment;
 
 public class workout_summary extends FragmentActivity {
 
+    public String TAG = "workout_summary";
     private TextView workoutType;
     private TextView timeDisplay;
     private TextView caloriesDisplay;
@@ -31,6 +34,8 @@ public class workout_summary extends FragmentActivity {
     public List<String> workouts;
     public double calories;
     private int numOfActivities;
+    private Date startTimeDate;
+    private Date finishTimeDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +58,37 @@ public class workout_summary extends FragmentActivity {
         calories = calculateCalories(finalTime, numOfActivities);
         caloriesDisplay.setText(String.valueOf(calories));
 
+        startTimeDate = (Date) getIntent().getSerializableExtra("startTime");
+        finishTimeDate = (Date) getIntent().getSerializableExtra("finishTime");
+        Log.e(TAG, String.valueOf(startTimeDate));
+        Log.e(TAG, String.valueOf(finishTimeDate));
+
         close = (Button) findViewById(R.id.btnFinish);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                submitWorkout(time, workoutTypeString);
                 Intent i = new Intent(workout_summary.this, MainActivity.class);
                 startActivity(i);
+            }
+        });
+
+    }
+
+    private void submitWorkout(String time, String workoutTypeString) {
+        Workout workout = new Workout();
+        workout.setStartDate(startTimeDate);
+        workout.setKeyEnd(finishTimeDate);
+        workout.setCalories(calories);
+        workout.setDuration(time);
+        workout.setWorkoutType(workoutTypeString);
+        workout.setKeyUser(ParseUser.getCurrentUser());
+
+        workout.saveInBackground((e) ->{
+            if(e != null){
+                Log.e(TAG, "ERROR WHILE SAVING");
+            } else {
+                Log.i(TAG, "Save Success");
             }
         });
 
@@ -118,7 +147,7 @@ public class workout_summary extends FragmentActivity {
          */
 
         ParseUser user = ParseUser.getCurrentUser();
-        Log.d("workout_summary", String.valueOf(user.get("weight")));    //figure out how to get information.
+        //Log.d("workout_summary", String.valueOf(user.get("weight")));    //figure out how to get information.
         Integer w = (Integer) user.get("weight");
 
 
@@ -145,10 +174,14 @@ public class workout_summary extends FragmentActivity {
         }
 
         double time = ((double) finalTime) / ((double) 60);
-        //double time = (double) (finalTime / 60);
-        cal = (time)*((double) MET*3.5*90.7185)/200; //calculates the calories burned
-                                                    //this will be using default 200lb for weight variable
-                                                    //which is equal to 90.7185kg
+        //kg --> pounds formula: lb/2.2046
+        double kgConv = ((double) w/2.2046);  //kilogram conversion from weight
+        //Log.i(TAG, String.valueOf(kgConv));
+
+        cal = (time)*((double) MET*3.5*kgConv)/200; //calculates the calories burned
+                                                    //this will be using users weight, and MET which will determine
+                                                    //the amount of work done during workout
+
         //Toast.makeText(workout_summary.this, String.valueOf(time), Toast.LENGTH_SHORT).show();
 
         BigDecimal bd = new BigDecimal(cal).setScale(2, RoundingMode.HALF_UP);

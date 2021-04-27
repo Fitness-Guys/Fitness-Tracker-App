@@ -2,6 +2,7 @@ package edu.csueb.codepath.fitness_tracker;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -20,8 +22,19 @@ import org.w3c.dom.Text;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseRelation;
+import com.parse.SaveCallback;
 
 public class workout_timer extends FragmentActivity {
     private String TAG = "workout_timer";
@@ -35,13 +48,17 @@ public class workout_timer extends FragmentActivity {
     private int currentTime;    //will be used to store the current time on the chronometer
     public List<String> workouts;
     private TextView workoutTitle;
+    private Date startTime;    //stores the date, and time of the started workout
+    private Date finishTime;   //stores the date and time of the finished workout
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout_timer);
+        SimpleDateFormat dtf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
         chronometer = (Chronometer) findViewById(R.id.timer);
 
@@ -60,7 +77,7 @@ public class workout_timer extends FragmentActivity {
         start_stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startStopTimer(v);
+                startStopTimer(v, dtf);
             }
         });
 
@@ -80,7 +97,8 @@ public class workout_timer extends FragmentActivity {
 
     }
 
-    public void startStopTimer(View view){
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void startStopTimer(View view, SimpleDateFormat dtf){
         if(!running && !started){   //If workout has just started
             chronometer.setBase(SystemClock.elapsedRealtime());
             chronometer.start();
@@ -88,6 +106,9 @@ public class workout_timer extends FragmentActivity {
             start_stop.setText("Stop");
             start_stop.setBackgroundTintList(getResources().getColorStateList(R.color.pastelred));
             started = true;
+            startTime = new Date();
+            Date st = startTime;
+            Log.i(TAG, String.valueOf(st));
         }else if(!running && started) { //if workout is getting unpaused
             chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffset);
             chronometer.start();
@@ -103,6 +124,7 @@ public class workout_timer extends FragmentActivity {
             currentTime = Math.round(elapsedMili/1000);
             start_stop.setText("start");
             start_stop.setBackgroundTintList(getResources().getColorStateList(R.color.pastelgreen));
+
         }
     }
 
@@ -130,9 +152,14 @@ public class workout_timer extends FragmentActivity {
 
         }
 
+        finishTime = new Date();
+        Log.i(TAG, String.valueOf(finishTime));
+
         Intent i = new Intent(this, workout_summary.class);
         i.putExtra("Workout2", (Serializable) workouts);
         i.putExtra("finalTime", seconds);
+        i.putExtra("startTime",(Serializable) startTime);
+        i.putExtra("finishTime",(Serializable) finishTime);
         startActivity(i);
         //Toast.makeText(this, "Elapsed seconds: " + seconds, Toast.LENGTH_SHORT).show();
 
