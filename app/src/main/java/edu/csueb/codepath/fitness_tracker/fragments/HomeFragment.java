@@ -1,6 +1,7 @@
 package edu.csueb.codepath.fitness_tracker.fragments;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,11 +60,12 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        tvUserName = view.findViewById(R.id.tvUserName);
-        tvDate = view.findViewById(R.id.tvDate);
-        rvWorkouts = view.findViewById(R.id.rvWorkouts);
-        tvCalories = view.findViewById(R.id.tvCalories);
-        tvActivity = view.findViewById(R.id.tvActivity);
+        tvUserName = (TextView) view.findViewById(R.id.tvUserName);
+        tvDate = (TextView) view.findViewById(R.id.tvDate);
+        rvWorkouts = (RecyclerView) view.findViewById(R.id.rvWorkouts);
+        tvCalories = (TextView) view.findViewById(R.id.tvCalories);
+        tvActivity = (TextView) view.findViewById(R.id.tvActivity);
+        //btnEdit = (ImageButton) view.findViewById(R.id);
 
         getCurrentUser();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Workout");
@@ -83,7 +87,7 @@ public class HomeFragment extends Fragment {
         });
 
          */
-
+        /*
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +95,8 @@ public class HomeFragment extends Fragment {
                 startActivity(i);
             }
         });
+
+         */
 
         // Initialize the list of tweets and adapter
         workout = new ArrayList<>();

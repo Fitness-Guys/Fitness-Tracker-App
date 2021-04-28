@@ -2,10 +2,12 @@ package edu.csueb.codepath.fitness_tracker.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,7 +31,7 @@ public class ProfileFragment extends Fragment {
     RecyclerView rvWorkouts;
     ImageView ivProfileImage;
     Button btnLogout;
-    Button btnEdit;
+    ImageButton btnEdit;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -49,8 +51,8 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        tvName = view.findViewById(R.id.tvUserName);
-        tvUsername = view.findViewById(R.id.tvUsername);
+        tvName = view.findViewById(R.id.tvUsernameProf);
+        tvUsername = view.findViewById(R.id.tvName);
         tvUserHeight = view.findViewById(R.id.tvUserHeight);
         tvUserWeight = view.findViewById(R.id.tvUserWeight);
         rvWorkouts = view.findViewById(R.id.rvWorkouts);
@@ -85,13 +87,16 @@ public class ProfileFragment extends Fragment {
         // we don't need to login every time we open this
         // application
         ParseUser currentUser = ParseUser.getCurrentUser();
+
         if (currentUser != null) {
             // do stuff with the user
         } else {
             // show the signup or login screen
         }
+        Log.i("ProfileFragment", currentUser.getUsername());
         tvName.setText(currentUser.getUsername());
-        tvUsername.setText(currentUser.get("firstname") + " " + currentUser.get("firstname"));
+        tvUsername.setText(currentUser.get("firstname") + " " + currentUser.get("lastname"));
+        Log.i("ProfileFragment", currentUser.get("firstname") + " " + currentUser.get("lastname"));
         tvUserHeight.setText(String.valueOf(currentUser.get("height")));
         tvUserWeight.setText(String.valueOf(currentUser.get("weight")));
 
