@@ -23,6 +23,7 @@ import edu.csueb.codepath.fitness_tracker.SignupActivity;
 public class ProfileFragment extends Fragment {
 
     TextView tvName;
+    TextView tvUsername;
     TextView tvUserHeight;
     TextView tvUserWeight;
     RecyclerView rvWorkouts;
@@ -49,6 +50,7 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         tvName = view.findViewById(R.id.tvUserName);
+        tvUsername = view.findViewById(R.id.tvUsername);
         tvUserHeight = view.findViewById(R.id.tvUserHeight);
         tvUserWeight = view.findViewById(R.id.tvUserWeight);
         rvWorkouts = view.findViewById(R.id.rvWorkouts);
@@ -89,6 +91,7 @@ public class ProfileFragment extends Fragment {
             // show the signup or login screen
         }
         tvName.setText(currentUser.getUsername());
+        tvUsername.setText(currentUser.get("firstname") + " " + currentUser.get("firstname"));
         tvUserHeight.setText(String.valueOf(currentUser.get("height"))); // need info
         tvUserWeight.setText(String.valueOf(currentUser.get("weight"))); // need info
 
