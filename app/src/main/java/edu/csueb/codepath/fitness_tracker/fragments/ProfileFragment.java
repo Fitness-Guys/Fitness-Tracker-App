@@ -92,8 +92,8 @@ public class ProfileFragment extends Fragment {
         }
         tvName.setText(currentUser.getUsername());
         tvUsername.setText(currentUser.get("firstname") + " " + currentUser.get("firstname"));
-        tvUserHeight.setText(String.valueOf(currentUser.get("height"))); // need info
-        tvUserWeight.setText(String.valueOf(currentUser.get("weight"))); // need info
+        tvUserHeight.setText(String.valueOf(currentUser.get("height")));
+        tvUserWeight.setText(String.valueOf(currentUser.get("weight")));
 
         /*
         File file = currentUser.get("profile_image".toString());
