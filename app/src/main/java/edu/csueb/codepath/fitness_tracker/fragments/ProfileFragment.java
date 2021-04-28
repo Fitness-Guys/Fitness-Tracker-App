@@ -93,8 +93,8 @@ public class ProfileFragment extends Fragment {
         } else {
             // show the signup or login screen
         }
-        Log.i("ProfileFragment", currentUser.getUsername());
-        tvName.setText(currentUser.getUsername());
+        Log.i("ProfileFragment", "@"+ currentUser.getUsername());
+        tvName.setText("@" + currentUser.getUsername());
         tvUsername.setText(currentUser.get("firstname") + " " + currentUser.get("lastname"));
         Log.i("ProfileFragment", currentUser.get("firstname") + " " + currentUser.get("lastname"));
         tvUserHeight.setText(String.valueOf(currentUser.get("height")));
