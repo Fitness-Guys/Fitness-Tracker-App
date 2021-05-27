@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:layout_marginLeft="@dimen/cardview_default_radius"
+    android:layout_marginRight="@dimen/cardview_default_radius"
     android:orientation="vertical"
+    android:visibility="visible"
     tools:context=".SignupActivity">
 
 
@@ -12,65 +16,125 @@
         android:id="@+id/etfirstname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="First Name" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/cardview_default_radius"
+        android:background="@color/white"
+        android:hint="First Name"
+        android:outlineAmbientShadowColor="@color/black" />
 
     <EditText
         android:id="@+id/etlastname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Last Name" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/cardview_default_radius"
+        android:background="@color/white"
+        android:hint="Last Name"
+        android:outlineAmbientShadowColor="@color/black" />
 
     <EditText
         android:id="@+id/etEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email Address" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/cardview_default_radius"
+        android:background="@color/white"
+        android:hint="Email Address"
+        android:outlineAmbientShadowColor="@color/black" />
 
     <EditText
         android:id="@+id/etWeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Weight" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/cardview_default_radius"
+        android:background="@color/white"
+        android:hint="Weight"
+        android:inputType="number"
+        android:outlineAmbientShadowColor="@color/black" />
 
     <EditText
         android:id="@+id/etHeight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Height" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/cardview_default_radius"
+        android:background="@color/white"
+        android:hint="Height"
+        android:inputType="number"
+        android:outlineAmbientShadowColor="@color/black" />
 
     <EditText
         android:id="@+id/etAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Age" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/cardview_default_radius"
+        android:background="@color/white"
+        android:hint="Age"
+        android:inputType="number"
+        android:outlineAmbientShadowColor="@color/black" />
 
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/cardview_default_radius"
+        android:background="@color/white"
+        android:hint="Username"
+        android:outlineAmbientShadowColor="@color/black" />
 
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/cardview_default_radius"
+        android:background="@color/white"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:outlineAmbientShadowColor="@color/black" />
 
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Submit" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:clickable="false"
         android:padding="10dp"
+        android:scaleType="center"
         android:src="@drawable/ic_baseline_arrow_back_24"
         android:textSize="12sp"
         android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="50dp"
+        android:foreground="@drawable/icons8_dumbbell_64"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/icons8_dumbbell_64"
+        tools:srcCompat="@drawable/icons8_dumbbell_64" />
+
+    <TextView
+        android:id="@+id/fitnessguys"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="135dp"
+        android:textAlignment="center"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:text="Fitness Guys" />
 
 </LinearLayout>

@@ -13,28 +13,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.SignUpCallback;
+
 
 public class LoginActivity extends AppCompatActivity {
     public static final String TAG = "LoginActivity";
     private EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
+    private Button btnSignup;
 
 
-    private EditText etfirstName;
-    private EditText etlastname;
-    private EditText etage;
-    private EditText etEmailAddress;
-    private EditText etNewWeight;
-    private EditText etNewHeight;
+//    private EditText etfirstName;
+//    private EditText etlastname;
+//    private EditText etage;
+//    private EditText etEmailAddress;
+//    private EditText etNewWeight;
+//    private EditText etNewHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //ParseUser.logOut();
         if(ParseUser.getCurrentUser() != null){
             goMainActivity();
         }
@@ -42,22 +42,23 @@ public class LoginActivity extends AppCompatActivity {
         etUsername =  findViewById(R.id.etUsername);
         etPassword =  findViewById(R.id.etPassword1);
         btnLogin = findViewById(R.id.btnsubmit);
+
+        btnSignup = findViewById(R.id.btnSignup);
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(TAG,"onClick Login button clicked");
+                Log.i(TAG,"Welcome to the Fitness Guys");
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 loginUser(username, password);
             }
         });
 
-        etfirstName = findViewById(R.id.etfirstname);
-        etlastname = findViewById(R.id.etlastname);
-        etage = findViewById(R.id.etage);
-        etNewHeight = findViewById(R.id.etNewHeight);
-        etNewWeight = findViewById(R.id.etNewWeight);
-        etEmailAddress = findViewById(R.id.etEmailAddress);
+        btnSignup.setOnClickListener(view -> {
+            Toast.makeText(LoginActivity.this,"Loading: Sign Up Screen", Toast.LENGTH_SHORT).show();
+            goSignupActivity();
+        });
         
     }
 
@@ -67,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if(e!= null){
+                    Toast.makeText(LoginActivity.this,"Log In not found: Try again", Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "Issue with login", e);
                     return;
                 }
@@ -77,45 +79,16 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void goMainActivity() {
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(i);
         finish();
     }
 
-    public void signup(View view){
-        ParseUser user = new ParseUser();
-        user.setPassword(etPassword.getText().toString());
-        user.setUsername(etUsername.getText().toString());
-        user.setEmail(etEmailAddress.getText().toString());
-        user.put("firstname", etfirstName.getText().toString());
-        user.put("lastname", etlastname.getText().toString());
-        user.put("height",etNewHeight.getText().toString());
-        user.put("weight",etNewWeight.getText().toString());
-        user.put("age", etage.getText().toString());
-
-        /**
-         * will also need to take in:
-         * email
-         * height
-         * weight
-         * date of birth // to increment age
-         * age
-         *
-         *
-         * */
-
-
-        user.signUpInBackground(new SignUpCallback() {
-            @Override
-            public void done(ParseException e) {
-                if(e!= null){
-                    Toast.makeText(LoginActivity.this, "Sign Up in UNSUCCESSFUL", Toast.LENGTH_SHORT).show();
-                    Log.e(TAG, "Sign up Failed!");
-                }else {
-                    Toast.makeText(LoginActivity.this, "Sign up SUCCESSFUL", Toast.LENGTH_SHORT).show();
-                    loginUser(etUsername.toString(), etPassword.toString());
-                }
-            }
-        });
+    private void goSignupActivity(){
+        Intent i = new Intent(LoginActivity.this, SignupActivity.class);
+        startActivity(i);
+        finish();
     }
+
+
 }
