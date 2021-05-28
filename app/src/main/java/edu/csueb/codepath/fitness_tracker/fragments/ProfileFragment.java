@@ -80,14 +80,13 @@ public class ProfileFragment extends Fragment {
 
         }
 
-        // Initialize the list of tweets and adapter
-        workout = new ArrayList<>();
-        adapter = new WorkoutListAdapter(this, workout);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-
-        //Recycler view setup: layout manager and the adapter
-        rvWorkouts.setLayoutManager(new LinearLayoutManager(this));
-        rvWorkouts.setAdapter(adapter);
+//        workout = new ArrayList<>();
+//        adapter = new WorkoutListAdapter(this, workout);
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+//
+//        //Recycler view setup: layout manager and the adapter
+//        rvWorkouts.setLayoutManager(new LinearLayoutManager(this));
+//        rvWorkouts.setAdapter(adapter);
 
 
 
