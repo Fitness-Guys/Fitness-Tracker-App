@@ -5,10 +5,12 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -50,6 +53,8 @@ public class workout_timer extends FragmentActivity {
     private TextView workoutTitle;
     private Date startTime;    //stores the date, and time of the started workout
     private Date finishTime;   //stores the date and time of the finished workout
+    private ProgressBar progressBar;
+
 
 
 
@@ -61,13 +66,17 @@ public class workout_timer extends FragmentActivity {
         SimpleDateFormat dtf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
         chronometer = (Chronometer) findViewById(R.id.timer);
+        //chronometer.setFormat("HH:MM:SS");
 
         start_stop = (Button) findViewById(R.id.btnStart_stop);
         reset = (Button) findViewById(R.id.btnReset);
         finishWorkout = (Button) findViewById(R.id.btnFinish);
         workoutTitle = (TextView) findViewById(R.id.tvWorkoutList);
+        progressBar = findViewById(R.id.circleProgress);
         running = false;
         started = false;
+        long elapsedMillis = SystemClock.elapsedRealtime()
+                - chronometer.getBase();
 
         workouts = (List<String>) getIntent().getSerializableExtra("Workout");
         Log.e(TAG, Arrays.toString(workouts.toArray()));
@@ -95,11 +104,32 @@ public class workout_timer extends FragmentActivity {
             }
         });
 
+        chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometer) {
+                Log.i(TAG, String.valueOf(SystemClock.elapsedRealtime() - chronometer.getBase()));
+                long elapsedMillis = SystemClock.elapsedRealtime()
+                        - chronometer.getBase();
+                Log.e(TAG, String.valueOf((Math.round(elapsedMillis/1000))));
+                int timerSeconds = Math.round(elapsedMillis/1000);
+                int finalTimerSeconds = 0;
+                if(timerSeconds > 60){
+                    finalTimerSeconds = timerSeconds % 60;
+                } else {
+                    finalTimerSeconds = timerSeconds;
+                }
+
+                Log.e(TAG, String.valueOf(finalTimerSeconds * 1.666));
+                progressBar.setProgress((int) Math.round(finalTimerSeconds * 1.666));
+            }
+        });
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void startStopTimer(View view, SimpleDateFormat dtf){
         if(!running && !started){   //If workout has just started
+
             chronometer.setBase(SystemClock.elapsedRealtime());
             chronometer.start();
             running = true;
@@ -148,8 +178,14 @@ public class workout_timer extends FragmentActivity {
             long elapsedMillis = SystemClock.elapsedRealtime()
                     - chronometer.getBase();
             seconds = Math.round(elapsedMillis/1000);
+
             Log.e("workout_timer", String.valueOf(seconds));
 
+        }
+
+        if(seconds == 0){
+            Toast.makeText(this, "Workout Not Started!", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         finishTime = new Date();
@@ -161,8 +197,16 @@ public class workout_timer extends FragmentActivity {
         i.putExtra("startTime",(Serializable) startTime);
         i.putExtra("finishTime",(Serializable) finishTime);
         startActivity(i);
+        Animatoo.animateSlideLeft(this);
+
         //Toast.makeText(this, "Elapsed seconds: " + seconds, Toast.LENGTH_SHORT).show();
 
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Animatoo.animateSlideRight(this);
     }
 }

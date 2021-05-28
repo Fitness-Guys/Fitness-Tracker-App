@@ -1,5 +1,4 @@
 package edu.csueb.codepath.fitness_tracker.fragments;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,21 +9,16 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.parse.ParseUser;
-
 import edu.csueb.codepath.fitness_tracker.LoginActivity;
 import edu.csueb.codepath.fitness_tracker.ProfileEdit;
 import edu.csueb.codepath.fitness_tracker.R;
 import edu.csueb.codepath.fitness_tracker.SignupActivity;
-
 public class ProfileFragment extends Fragment {
-
     TextView tvName;
     TextView tvUsername;
     TextView tvUserHeight;
@@ -33,11 +27,9 @@ public class ProfileFragment extends Fragment {
     ImageView ivProfileImage;
     Button btnLogout;
     ImageButton btnEdit;
-
     public ProfileFragment() {
         // Required empty public constructor
     }
-
     // The onCreateView method is called when Fragment should create its View object hierarchy
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,13 +37,11 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
-
     // This event is triggered soon after onCreateView().
     // Any view setup should occur here. E.g., view lookups and attaching view listeners.
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         tvName = view.findViewById(R.id.tvUsernameProf);
         tvUsername = view.findViewById(R.id.tvName);
         tvUserHeight = view.findViewById(R.id.tvUserHeight);
@@ -60,9 +50,7 @@ public class ProfileFragment extends Fragment {
         ivProfileImage = view.findViewById(R.id.ivProfileImage);
         btnLogout = view.findViewById(R.id.btnLogout);
         btnEdit = view.findViewById(R.id.btnEdit);
-
         getCurrentUser();
-
         // Logout button
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +61,6 @@ public class ProfileFragment extends Fragment {
                 startActivity(i);
             }
         });
-
         // Edit Profile
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,35 +70,22 @@ public class ProfileFragment extends Fragment {
             }
         });
     }
-
     public void getCurrentUser() {
         // After login, Parse will cache it on disk, so
         // we don't need to login every time we open this
         // application
         ParseUser currentUser = ParseUser.getCurrentUser();
-
         if (currentUser != null) {
             // do stuff with the user
         } else {
             // show the signup or login screen
         }
-
-//        workout = new ArrayList<>();
-//        adapter = new WorkoutListAdapter(this, workout);
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-//
-//        //Recycler view setup: layout manager and the adapter
-//        rvWorkouts.setLayoutManager(new LinearLayoutManager(this));
-//        rvWorkouts.setAdapter(adapter);
-
-
         Log.i("ProfileFragment", "@"+ currentUser.getUsername());
         tvName.setText("@" + currentUser.getUsername());
         tvUsername.setText(currentUser.get("firstname") + " " + currentUser.get("lastname"));
         Log.i("ProfileFragment", currentUser.get("firstname") + " " + currentUser.get("lastname"));
         tvUserHeight.setText(String.valueOf(currentUser.get("height")));
         tvUserWeight.setText(String.valueOf(currentUser.get("weight")));
-
         /*
         File file = currentUser.get("profile_image".toString());
         Uri uri = Uri.fromFile(file);

@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.media.AudioAttributesCompatParcelizer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,15 +18,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import edu.csueb.codepath.fitness_tracker.R;
 import edu.csueb.codepath.fitness_tracker.WorkoutListAdapter;
@@ -45,7 +43,6 @@ public class TrackFragment extends Fragment {
 
     private Button startButton;
 
-
     public TrackFragment() {
         // Required empty public constructor
     }
@@ -57,7 +54,7 @@ public class TrackFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_track, container, false);
         rvWorkout = (RecyclerView) view.findViewById(R.id.rvWorkout);
-        CardView cardView = (CardView) view.findViewById(R.id.card_workoutTask);
+        CardView cardView = (CardView) view.findViewById(R.id.cardWorkoutHome);
 
         startButton = (Button) view.findViewById(R.id.btnStart);
         workoutListAdapter = new WorkoutListAdapter(workouts, this);
@@ -77,6 +74,7 @@ public class TrackFragment extends Fragment {
                     Intent i = new Intent(getActivity(), workout_timer.class);
                     i.putExtra("Workout", (Serializable) selected);
                     startActivity(i);
+                    Animatoo.animateSlideLeft(getContext());
                 }else {
                     Toast.makeText(getContext(), "No workout selected!", Toast.LENGTH_SHORT).show();
                 }

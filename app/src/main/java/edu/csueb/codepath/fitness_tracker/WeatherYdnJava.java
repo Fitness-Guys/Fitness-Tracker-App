@@ -1,4 +1,8 @@
-// Copyright 2019 Oath Inc. Licensed under the terms of the zLib license see https://opensource.org/licenses/Zlib for terms.
+package edu.csueb.codepath.fitness_tracker;// Copyright 2019 Oath Inc. Licensed under the terms of the zLib license see https://opensource.org/licenses/Zlib for terms.
+
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import java.net.URI;
 import java.net.URLEncoder;
@@ -32,7 +36,9 @@ import javax.crypto.spec.SecretKeySpec;
  */
 //package edu.csueb.codepath.fitness_tracker;
 /*
+
 public class WeatherYdnJava {
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void main(String[] args) throws Exception {
 
         final String appId = "test-app-id";
@@ -98,7 +104,4 @@ public class WeatherYdnJava {
         HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
         System.out.println(response.body());
     }
-}
-
-
- */
+}*/
