@@ -95,22 +95,13 @@ public class ProfileFragment extends Fragment {
         } else {
             // show the signup or login screen
         }
-
-//        workout = new ArrayList<>();
-//        adapter = new WorkoutListAdapter(this, workout);
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-//
-//        //Recycler view setup: layout manager and the adapter
-//        rvWorkouts.setLayoutManager(new LinearLayoutManager(this));
-//        rvWorkouts.setAdapter(adapter);
-
-
         Log.i("ProfileFragment", "@"+ currentUser.getUsername());
         tvName.setText("@" + currentUser.getUsername());
         tvUsername.setText(currentUser.get("firstname") + " " + currentUser.get("lastname"));
         Log.i("ProfileFragment", currentUser.get("firstname") + " " + currentUser.get("lastname"));
         tvUserHeight.setText(String.valueOf(currentUser.get("height")));
         tvUserWeight.setText(String.valueOf(currentUser.get("weight")));
+
 
         /*
         File file = currentUser.get("profile_image".toString());
