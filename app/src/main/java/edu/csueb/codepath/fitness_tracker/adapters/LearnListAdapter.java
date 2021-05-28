@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.util.Pair;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,6 +46,7 @@ public class LearnListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         ImageView imageView, ivPosterOverlay;
         TextView tvTitle, tvDescription;
+        CardView cardView;
         RelativeLayout rvContainer;
         //RecyclerView rvLearnWorkout;
 
@@ -55,6 +58,7 @@ public class LearnListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             //tvDescription = itemView.findViewById(R.id.tvDescription);
             // rvContainer = itemView.findViewById(R.id.card_learn_item);
             // ivPosterOverlay = itemView.findViewById(R.id.ivPosterOverlay);
+            cardView = itemView.findViewById(R.id.card_learn_item);
         }
 
         public void setData(String category) {
@@ -134,6 +138,7 @@ public class LearnListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     }
                 }
             });
+            //cardView.setLayoutAnimation(AnimationUtils.loadLayoutAnimation(itemView.getContext(), R.anim.layout_fade_animation));
         }
     }
 
