@@ -30,7 +30,6 @@ public class SignupActivity extends AppCompatActivity {
 
     private Button submit;
     private ImageView back;
-    private ImageView logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,6 @@ public class SignupActivity extends AppCompatActivity {
         weight = findViewById(R.id.etWeight);
         height = findViewById(R.id.etHeight);
         age = findViewById(R.id.etAge);
-        logo = findViewById(R.id.logo);
 
         username = findViewById(R.id.etUsername);
         password = findViewById(R.id.etPassword);
@@ -93,7 +91,7 @@ public class SignupActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(SignupActivity.this, "Going back to Log In screen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupActivity.this, "button clicked on back", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(SignupActivity.this, LoginActivity.class);
                 startActivity(i);
                 finish();
