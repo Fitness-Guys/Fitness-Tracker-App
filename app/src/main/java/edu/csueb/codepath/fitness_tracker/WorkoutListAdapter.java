@@ -5,10 +5,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.reflect.Array;
@@ -48,6 +50,11 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        //RecyclerView cv;
+        //cv = holder.cv.findViewById(R.id.rvWorkout);
+        //cv.setLayoutAnimation(AnimationUtils.loadLayoutAnimation(holder.cv.getContext(), R.anim.layout_task_list_anim));
+
+
         String item = workouts.get(position);
         holder.task.setText(item);
         holder.task.setOnClickListener(new View.OnClickListener() {
@@ -87,12 +94,13 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
 
     class ViewHolder extends RecyclerView.ViewHolder{
         public CheckBox task;
+        //public RecyclerView cv;
         private Context context;
 
         public ViewHolder(View view){
             super(view);
             task = (CheckBox) view.findViewById(R.id.checkbox);
-
+            //cv = view.findViewById(R.id.rvWorkout);
         }
 
         public void bind(String item) {
