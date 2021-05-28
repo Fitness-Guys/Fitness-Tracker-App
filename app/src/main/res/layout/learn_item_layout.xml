@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_learn_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/cardViewTextBox"
+            android:layout_width="387dp"
+            android:layout_height="64dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:paddingStart="12dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="4dp"
+            android:buttonTint="@color/bottom_navigation_selector"
+            android:fontFamily="@font/montserrat"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:elegantTextHeight="true" />
+
+        <!--<Button
+            android:id="@+id/checkbox"
+            android:layout_width="387dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/bottom_navigation_selector"
+            android:checked="false"
+            android:fontFamily="@font/montserrat"
+            android:textSize="17sp"
+            tools:text="This is a test Text">
+        </Button>-->
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
