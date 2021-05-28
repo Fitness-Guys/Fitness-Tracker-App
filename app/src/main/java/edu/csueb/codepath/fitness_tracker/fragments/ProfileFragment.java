@@ -1,23 +1,38 @@
 package edu.csueb.codepath.fitness_tracker.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
 import com.parse.ParseUser;
 
+import edu.csueb.codepath.fitness_tracker.LoginActivity;
+import edu.csueb.codepath.fitness_tracker.ProfileEdit;
 import edu.csueb.codepath.fitness_tracker.R;
-import edu.csueb.codepath.fitness_tracker.UserModel;
+import edu.csueb.codepath.fitness_tracker.SignupActivity;
 
 public class ProfileFragment extends Fragment {
+
+    TextView tvName;
+    TextView tvUsername;
+    TextView tvUserHeight;
+    TextView tvUserWeight;
+    RecyclerView rvWorkouts;
+    ImageView ivProfileImage;
+    Button btnLogout;
+    ImageButton btnEdit;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -37,21 +52,37 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TextView tvName;
-        TextView tvUserHeight;
-        TextView tvUserWeight;
-        RecyclerView rvWorkouts; // working on
-        ParseUser user = ParseUser.getCurrentUser();
+        tvName = view.findViewById(R.id.tvUsernameProf);
+        tvUsername = view.findViewById(R.id.tvName);
+        tvUserHeight = view.findViewById(R.id.tvUserHeight);
+        tvUserWeight = view.findViewById(R.id.tvUserWeight);
+        rvWorkouts = view.findViewById(R.id.rvWorkouts);
+        ivProfileImage = view.findViewById(R.id.ivProfileImage);
+        btnLogout = view.findViewById(R.id.btnLogout);
+        btnEdit = view.findViewById(R.id.btnEdit);
 
-       // only firstname is populated
+        getCurrentUser();
 
+        // Logout button
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                ParseUser.logOut();
+                Intent i = new Intent(getContext(), LoginActivity.class);
+                startActivity(i);
+            }
+        });
 
-
-//        tvName.setText(user.get("firstname").toString()); // need info
-//        tvUserHeight.setText(); // need info
-//        tvUserWeight.setText(); // need info
-
-
+        // Edit Profile
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), ProfileEdit.class);
+                startActivity(i);
+            }
+        });
+    }
 
     public void getCurrentUser() {
         // After login, Parse will cache it on disk, so
@@ -85,6 +116,5 @@ public class ProfileFragment extends Fragment {
         File file = currentUser.get("profile_image".toString());
         Uri uri = Uri.fromFile(file);
         ivProfileImage.setImageURI(uri);*/
-
     }
 }
