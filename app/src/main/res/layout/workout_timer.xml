@@ -21,6 +21,7 @@
         android:layout_below="@+id/tvWorkout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
         android:text="TextView"
         android:textColor="@color/black"
         android:textSize="15sp" />
@@ -29,10 +30,11 @@
         android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvWorkout"
+        android:layout_alignTop="@+id/circleProgress"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:textSize="30sp" />
+        android:layout_marginTop="85dp"
+        android:fontFamily="@font/montserrat"
+        android:textSize="50sp" />
 
     <Button
         android:id="@+id/btnStart_stop"
@@ -69,6 +71,17 @@
         android:elevation="4dp"
         android:text="Finish Workout"
         android:textColor="#FFFFFF" />
+
+    <ProgressBar
+        android:id="@+id/circleProgress"
+        style="?android:progressBarStyleHorizontal"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="182dp"
+        android:progress="100"
+        android:progressDrawable="@drawable/progress_circle" />
 
 
 </RelativeLayout>
