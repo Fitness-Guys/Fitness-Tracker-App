@@ -69,27 +69,6 @@
         android:layout_marginEnd="125dp"
         android:text="150 lb" />
 
-    <TextView
-        android:id="@+id/tvWorkouts"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvUserHeight"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:text="Workouts"
-        android:textAlignment="textStart"
-        android:textColor="#6AA3F1"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvWorkouts"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tvWorkouts"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
-
     <ImageButton
         android:id="@+id/btnEdit"
         android:layout_width="wrap_content"
