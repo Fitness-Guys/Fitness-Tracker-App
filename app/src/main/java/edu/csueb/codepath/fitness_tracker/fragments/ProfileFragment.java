@@ -25,8 +25,9 @@ public class ProfileFragment extends Fragment {
     TextView tvUserWeight;
     RecyclerView rvWorkouts;
     ImageView ivProfileImage;
-    Button btnLogout;
+    ImageButton btnLogout;
     ImageButton btnEdit;
+
     public ProfileFragment() {
         // Required empty public constructor
     }
