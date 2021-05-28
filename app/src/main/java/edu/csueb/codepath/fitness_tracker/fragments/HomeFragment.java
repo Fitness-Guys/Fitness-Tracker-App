@@ -1,15 +1,13 @@
 package edu.csueb.codepath.fitness_tracker.fragments;
 
-import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,11 +33,10 @@ public class HomeFragment extends Fragment {
 
     TextView tvUserName;
     TextView tvDate;
-    TextView tvWeather;
+    TextView tvActivity;
     TextView tvCalories;
     ImageButton btnEdit;
     RecyclerView rvWorkouts;
-
 
     List workout;
     WorkoutListAdapter adapter;
@@ -61,28 +60,69 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        tvUserName = view.findViewById(R.id.tvUserName);
-        tvDate = view.findViewById(R.id.tvDate);
-        tvWeather = view.findViewById(R.id.tvWeather);
-        btnEdit = view.findViewById(R.id.btnEdit);
-        rvWorkouts = view.findViewById(R.id.rvWorkouts);
-        tvCalories = view.findViewById(R.id.tvCalories);
+        tvUserName = (TextView) view.findViewById(R.id.tvUserName);
+        tvDate = (TextView) view.findViewById(R.id.tvDate);
+        rvWorkouts = (RecyclerView) view.findViewById(R.id.rvWorkouts);
+        tvCalories = (TextView) view.findViewById(R.id.tvCalories);
+        tvActivity = (TextView) view.findViewById(R.id.tvActivity);
+        //btnEdit = (ImageButton) view.findViewById(R.id);
 
-        public void getCurrentUser() {
-            // After login, Parse will cache it on disk, so
-            // we don't need to login every time we open this
-            // application
-            ParseUser currentUser = ParseUser.getCurrentUser();
-            if (currentUser != null) {
-                // do stuff with the user
+        getCurrentUser();
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Workout");
+
+        // The query will search for a ParseObject, given its objectId.
+        // When the query finishes running, it will invoke the GetCallback
+        // with either the object, or the exception thrown
+        /*
+        query.getInBackground("<PARSE_OBJECT_ID>", (object, e) -> {
+            if (e == null) {
+                //Object was successfully retrieved
+                tvCalories.setText(object.get("calories"));
+
             } else {
-                // show the signup or login screen
+                // something went wrong
+                //Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("HomeFragment", "Query Failed");
             }
-            tvUserName.setText(currentUser.getUsername()); // need info
-            tvDate.setText(DateSummary.getDate());
-            tvWeather.setText(DateSummary.getWeather());
-        }
+        });
 
+         */
+        /*
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), ProfileEdit.class);
+                startActivity(i);
+            }
+        });
+
+         */
+
+        // Initialize the list of tweets and adapter
+        workout = new ArrayList<>();
+        //adapter = new WorkoutListAdapter(workout, );
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+
+        //Recycler view setup: layout manager and the adapter
+        rvWorkouts.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvWorkouts.setAdapter(adapter);
+    }
+
+    public void getCurrentUser() {
+        // After login, Parse will cache it on disk, so
+        // we don't need to login every time we open this
+        // application
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            // do stuff with the user
+        } else {
+            // show the signup or login screen
+        }
+        this.tvUserName.setText("Hello " + (currentUser.getUsername()));
+        this.tvDate.setText(DateSummary.getDate());
+    }
+
+    public void readObject() {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Workout");
 
         // The query will search for a ParseObject, given its objectId.
@@ -91,30 +131,12 @@ public class HomeFragment extends Fragment {
         query.getInBackground("<PARSE_OBJECT_ID>", (object, e) -> {
             if (e == null) {
                 //Object was successfully retrieved
-                tvCalories.setText(object.get("calories"));
-
+                tvCalories.setText("calories");
+                tvActivity.setText("duration");
             } else {
                 // something went wrong
-                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-        btnEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomeFragment.this, ProfileEdit.class);
-                startActivity(i);
-            }
-        });
-
-        // Initialize the list of tweets and adapter
-        workout = new ArrayList<>();
-        adapter = new WorkoutListAdapter(this, workout);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-
-        //Recycler view setup: layout manager and the adapter
-        rvWorkouts.setLayoutManager(new LinearLayoutManager(this));
-        rvWorkouts.setAdapter(adapter);
     }
+
 }

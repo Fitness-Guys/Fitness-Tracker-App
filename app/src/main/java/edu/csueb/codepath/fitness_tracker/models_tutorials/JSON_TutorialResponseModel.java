@@ -3,16 +3,19 @@ package edu.csueb.codepath.fitness_tracker.models_tutorials;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
 import java.util.List;
 
+@Parcel
 public class JSON_TutorialResponseModel {
 
     @SerializedName("nextPageToken")
     @Expose
-    private String nextPageToken;
+    protected String nextPageToken;
     @SerializedName("items")
     @Expose
-    private List<VideoYT> items;
+    protected List<VideoYT> items;
 
     public JSON_TutorialResponseModel() { }
 

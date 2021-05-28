@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import edu.csueb.codepath.fitness_tracker.fragments.TrackFragment;
@@ -24,7 +25,7 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
     }
 
     private List<String> workouts;
-    private List<CheckBox> workoutCheckboxs;
+    private List<String> checked;
     private TrackFragment activity;
 
     OnClickListener clickListener;
@@ -32,6 +33,7 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
     public WorkoutListAdapter(List<String> list, TrackFragment trackFragment){ //, OnClickListener clicklistener
         this.workouts = list;
         this.activity = trackFragment;
+        checked = new ArrayList<>();
         //this.clickListener = clicklistener;
     }
 
@@ -40,6 +42,7 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
 
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.workout_task_layout, parent, false);
+
         return new ViewHolder(itemView);
     }
 
@@ -47,7 +50,22 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
     public void onBindViewHolder(ViewHolder holder, int position) {
         String item = workouts.get(position);
         holder.task.setText(item);
+        holder.task.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(holder.task.isChecked()){
+                    Log.i("WorkoutListAdapter", holder.task.getText().toString());
+                    checked.add(holder.task.getText().toString());
+                } else if(!holder.task.isChecked()){
+                    //Log.i("WorkoutListAdapter", holder.task.getText().toString() + " Is unchecked");
+                    if(checked.contains(holder.task.getText().toString())){
+                        Log.i("WorkoutListAdapter", holder.task.getText().toString() + " Is unchecked");
+                        checked.remove(holder.task.getText().toString());
+                    }
+                }
 
+            }
+        });
     }
 
     @Override
@@ -60,35 +78,30 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
         this.notifyDataSetChanged();
     }
 
-    /*
-    public List<String> getChecked(){
-        List<String> checked = new ArrayList<>();
-        for(CheckBox item: workoutCheckboxs){
-            if(item.isChecked()){
-                checked.add(item.getText().toString());
-            }
-        }
 
+    public List<String> getChecked(){
+        Log.i("WorkoutListAdapter", Arrays.toString(checked.toArray()));
         return checked;
     }
-    */
+
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        CheckBox task;
+        public CheckBox task;
+        private Context context;
 
         public ViewHolder(View view){
             super(view);
             task = (CheckBox) view.findViewById(R.id.checkbox);
-            //workoutCheckboxs.add(task);
+
         }
 
         public void bind(String item) {
             task.setText(item);
-
             task.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     clickListener.onItemClicked(getAdapterPosition());
+
                 }
             });
         }
