@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //ParseUser.logOut();
         if(ParseUser.getCurrentUser() != null){
             goMainActivity();
         }
@@ -49,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i(TAG,"onClick Login button clicked");
+                Log.i(TAG,"Welcome to the Fitness Guys");
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 loginUser(username, password);
@@ -57,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         btnSignup.setOnClickListener(view -> {
-            Toast.makeText(LoginActivity.this,"Sign up button clicked", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this,"Loading: Sign Up Screen", Toast.LENGTH_SHORT).show();
             goSignupActivity();
         });
         
@@ -69,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if(e!= null){
+                    Toast.makeText(LoginActivity.this,"Log In not found: Try again", Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "Issue with login", e);
                     return;
                 }
