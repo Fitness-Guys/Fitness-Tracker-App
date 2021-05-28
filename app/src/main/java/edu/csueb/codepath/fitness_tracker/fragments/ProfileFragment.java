@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.parse.ParseUser;
 
+import edu.csueb.codepath.fitness_tracker.LoginActivity;
 import edu.csueb.codepath.fitness_tracker.ProfileEdit;
 import edu.csueb.codepath.fitness_tracker.R;
 import edu.csueb.codepath.fitness_tracker.SignupActivity;
@@ -67,7 +68,8 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ParseUser currentUser = ParseUser.getCurrentUser();
-                Intent i = new Intent(getContext(), SignupActivity.class);
+                ParseUser.logOut();
+                Intent i = new Intent(getContext(), LoginActivity.class);
                 startActivity(i);
             }
         });
@@ -99,6 +101,7 @@ public class ProfileFragment extends Fragment {
         Log.i("ProfileFragment", currentUser.get("firstname") + " " + currentUser.get("lastname"));
         tvUserHeight.setText(String.valueOf(currentUser.get("height")));
         tvUserWeight.setText(String.valueOf(currentUser.get("weight")));
+
 
         /*
         File file = currentUser.get("profile_image".toString());
