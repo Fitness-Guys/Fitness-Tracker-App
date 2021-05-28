@@ -1,43 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
+    android:layout_marginLeft="@dimen/cardview_default_radius"
+    android:layout_marginRight="@dimen/cardview_default_radius"
+    android:layout_centerHorizontal="true"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
-
     <EditText
-        android:id="@+id/etUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Username"
-         />
+    android:id="@+id/etUsername"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@color/white"
+    android:outlineAmbientShadowColor="@color/black"
+    android:layout_marginBottom="@dimen/cardview_default_radius"
+    android:ems="10"
+    android:hint="Username" />
 
     <EditText
         android:id="@+id/etPassword1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
+        android:background="@color/white"
         android:ems="2"
-        android:hint="password"
+        android:hint="Password"
         android:inputType="textPassword" />
-
     <Button
         android:id="@+id/btnsubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login" />
-
-
-
-    <Button
-        android:id="@+id/btnSignup"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:color="@color/metal_silver"
+        android:shadowColor="@color/black"
+        android:text="Login" />
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:color="@color/metal_silver"
+        android:shadowColor="@color/black"
         android:text="Sign Up" />
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="50dp"
+        android:foreground="@drawable/icons8_dumbbell_64"
+        android:scaleType="centerInside"
+        tools:srcCompat="@drawable/icons8_dumbbell_64" />
+    <TextView
+        android:id="@+id/fitnessguys"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="135dp"
+        android:textAlignment="center"
+        android:textColor="@color/themeColor"
+        android:textStyle="bold"
+        android:text="Fitness Guys" />
 </LinearLayout>
