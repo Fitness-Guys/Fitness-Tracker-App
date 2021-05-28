@@ -10,7 +10,7 @@ public class ParseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-//        ParseObject.registerSubclass((?).class); We will need to connect to the database of workout here.
+        ParseObject.registerSubclass(Workout.class); //We will need to connect to the database of workout here.
 
 
         Parse.initialize(new Parse.Configuration.Builder(this)
