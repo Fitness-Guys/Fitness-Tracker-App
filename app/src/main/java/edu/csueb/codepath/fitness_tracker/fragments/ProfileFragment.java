@@ -27,6 +27,7 @@ public class ProfileFragment extends Fragment {
     ImageView ivProfileImage;
     ImageButton btnLogout;
     ImageButton btnEdit;
+
     public ProfileFragment() {
         // Required empty public constructor
     }
