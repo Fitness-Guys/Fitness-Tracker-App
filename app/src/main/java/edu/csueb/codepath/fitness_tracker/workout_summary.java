@@ -16,6 +16,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
 import java.util.List;
+
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -70,6 +72,7 @@ public class workout_summary extends FragmentActivity {
                 submitWorkout(time, workoutTypeString);
                 Intent i = new Intent(workout_summary.this, MainActivity.class);
                 startActivity(i);
+                Animatoo.animateFade(workout_summary.this);
             }
         });
 
@@ -180,5 +183,11 @@ public class workout_summary extends FragmentActivity {
         cal = bd.doubleValue();
 
         return cal;
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Animatoo.animateSlideRight(this);
     }
 }

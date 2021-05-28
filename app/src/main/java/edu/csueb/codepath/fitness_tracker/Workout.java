@@ -64,4 +64,8 @@ public class Workout extends ParseObject {
         return getParseFile(KEY_WORKOUT_TYPE);
     }
 
+    public String getWorkoutTypeString(){return KEY_WORKOUT_TYPE;}
+
+    public String getDurationString(){return KEY_DURATION;}
+
 }
