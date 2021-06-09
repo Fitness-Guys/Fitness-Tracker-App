@@ -6,54 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="258dp"
+        android:background="?android:attr/listDivider" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="147dp"
+        android:background="?android:attr/listDivider" />
+
     <TextView
-        android:id="@+id/tvTrackTitle"
+        android:id="@+id/tvWorkout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivCalories"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
+        android:text="Workouts"
         android:textColor="#6AA3F1"
+        android:textSize="20sp"
         android:textStyle="bold"
         tools:text="Workouts" />
-
-    <TextView
-        android:id="@+id/tvSummary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ivWeather"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/montserrat"
-        android:textColor="#6AA3F1"
-        android:textStyle="bold"
-        tools:text="Summary" />
 
     <TextView
         android:id="@+id/tvUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/montserrat"
         android:text="TextView"
         android:textColor="#6AA3F1"
+        android:textSize="20sp"
         android:textStyle="bold"
         tools:text="Hello Name" />
-
-    <ImageView
-        android:id="@+id/ivDate"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/tvUserName"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="10dp"
-        tools:src="@drawable/calendar" />
 
     <TextView
         android:id="@+id/tvDate"
@@ -62,90 +62,149 @@
         android:layout_below="@+id/tvUserName"
         android:layout_marginStart="10dp"
         android:layout_marginTop="25dp"
-        android:layout_toEndOf="@+id/ivDate"
-        android:text="TextView"
-        tools:src="@android:drawable/ic_menu_my_calendar" />
-
-    <TextView
-        android:id="@+id/tvWeather"
-        android:layout_width="133dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvUserName"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="0dp"
-        android:text="TextView" />
-
-    <ImageView
-        android:id="@+id/ivWeather"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/tvUserName"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_toStartOf="@+id/tvWeather"
-        android:layout_toEndOf="@+id/tvDate"
-        android:src="@drawable/temperature" />
-
-    <ImageView
-        android:id="@+id/ivActivity"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/tvSummary"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        android:src="@android:drawable/ic_menu_recent_history"
-        tools:src="@drawable/workouttime" />
-
-    <TextView
-        android:id="@+id/tvActivity"
-        android:layout_width="107dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvSummary"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="25dp"
-        android:layout_toEndOf="@+id/ivActivity"
-        android:text="TextView" />
+        android:layout_toEndOf="@+id/imageView4"
+        android:textColor="@color/black"
+        tools:src="@android:drawable/ic_menu_my_calendar"
+        tools:text="Apr 27 " />
 
     <ImageView
         android:id="@+id/ivCalories"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/tvSummary"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/textView7"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
-        android:layout_toStartOf="@+id/tvCalories"
         android:layout_toEndOf="@+id/tvActivity"
         android:src="@drawable/calories" />
 
-    <TextView
-        android:id="@+id/tvCalories"
-        android:layout_width="129dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvSummary"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="17dp"
-        android:text="TextView" />
-
-    <ImageButton
-        android:id="@+id/btnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:backgroundTint="#FFFFFF"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvWorkouts"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tvTrackTitle"
+        android:layout_width="500dp"
+        android:layout_height="700dp"
+        android:layout_below="@+id/tvWorkout"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:foregroundTint="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/tvUserName"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/tvDate"
+        android:src="@drawable/temperature" />
+
+    <TextView
+        android:id="@+id/tvTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView9"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/imageView3"
+        android:text="75°F" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="117dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Today's Summary"
+        android:textColor="@color/bottom_navigation_selector"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/tvUserName"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/calendar" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textView7"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/workouttime" />
+
+    <TextView
+        android:id="@+id/tvActivity"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView11"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/imageView5"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tvCalories"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView10"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/ivCalories"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivCalories"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/ivCalories"
+        android:text="Calories Burnt"
+        android:textColor="@color/black"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView5"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/imageView5"
+        android:text="Total Duration"
+        android:textColor="@color/black"
+        android:textStyle="italic" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/imageView3"
+        android:text="Outside Temp"
+        android:textColor="@color/black"
+        android:textStyle="italic" />
 
 </RelativeLayout>
