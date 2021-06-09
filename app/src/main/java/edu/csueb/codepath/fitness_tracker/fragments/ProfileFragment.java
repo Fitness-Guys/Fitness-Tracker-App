@@ -13,6 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 import edu.csueb.codepath.fitness_tracker.LoginActivity;
 import edu.csueb.codepath.fitness_tracker.ProfileEdit;
@@ -27,6 +33,7 @@ public class ProfileFragment extends Fragment {
     ImageView ivProfileImage;
     ImageButton btnLogout;
     ImageButton btnEdit;
+    String TAG = "ProfileFragment";
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -87,9 +94,30 @@ public class ProfileFragment extends Fragment {
         Log.i("ProfileFragment", currentUser.get("firstname") + " " + currentUser.get("lastname"));
         tvUserHeight.setText(String.valueOf(currentUser.get("height")));
         tvUserWeight.setText(String.valueOf(currentUser.get("weight")));
+        int radius = 30;
+        int margin = 10;
+
+        ParseFile profileImageFile = currentUser.getParseFile("profile_image");
+        profileImageFile.getDataInBackground(new GetDataCallback() {
+            @Override
+            public void done(byte[] data, ParseException e) {
+                if(e == null){
+                    Log.i(TAG, "Data recieved: " + String.valueOf(data.toString()));
+                    Log.i(TAG, "Data recieved: " + String.valueOf(profileImageFile.getUrl()));
+                    Glide.with(getContext()).load(profileImageFile.getUrl()).centerCrop().circleCrop().into(ivProfileImage);
+
+                } else {
+                    Log.e(TAG, "Error occured, data not retrieved");
+                }
+            }
+        });
+
+        Log.e(TAG, String.valueOf(currentUser.get(String.valueOf(profileImageFile.getUrl()))));
         /*
         File file = currentUser.get("profile_image".toString());
         Uri uri = Uri.fromFile(file);
         ivProfileImage.setImageURI(uri);*/
+
+
     }
 }

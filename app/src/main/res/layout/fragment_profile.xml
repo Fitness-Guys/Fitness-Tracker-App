@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/ivProfileImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
         tools:src="@tools:sample/avatars" />
 
     <TextView
@@ -73,7 +73,7 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="77dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="5dp"
         android:layout_toStartOf="@+id/btnEdit"
@@ -111,9 +111,9 @@
         android:id="@+id/textView3"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/tvUsernameProf"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="171dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="105dp"
         android:text="Weight"
         android:textAlignment="center" />
