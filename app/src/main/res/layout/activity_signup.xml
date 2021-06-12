@@ -5,121 +5,254 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
-    android:layout_marginLeft="@dimen/cardview_default_radius"
-    android:layout_marginRight="@dimen/cardview_default_radius"
     android:orientation="vertical"
     android:visibility="visible"
     tools:context=".SignupActivity">
-    <EditText
-        android:id="@+id/etfirstname"
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/cardview_default_radius"
-        android:background="@color/white"
-        android:hint="First Name"
-        android:outlineAmbientShadowColor="@color/black" />
-    <EditText
-        android:id="@+id/etlastname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/cardview_default_radius"
-        android:background="@color/white"
-        android:hint="Last Name"
-        android:outlineAmbientShadowColor="@color/black" />
-    <EditText
-        android:id="@+id/etEmailAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/cardview_default_radius"
-        android:background="@color/white"
-        android:hint="Email Address"
-        android:outlineAmbientShadowColor="@color/black" />
-    <EditText
-        android:id="@+id/etWeight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/cardview_default_radius"
-        android:background="@color/white"
-        android:hint="Weight"
-        android:inputType="number"
-        android:outlineAmbientShadowColor="@color/black" />
-    <EditText
-        android:id="@+id/etHeight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/cardview_default_radius"
-        android:background="@color/white"
-        android:hint="Height"
-        android:inputType="number"
-        android:outlineAmbientShadowColor="@color/black" />
-    <EditText
-        android:id="@+id/etAge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/cardview_default_radius"
-        android:background="@color/white"
-        android:hint="Age"
-        android:inputType="number"
-        android:outlineAmbientShadowColor="@color/black" />
-    <EditText
-        android:id="@+id/etUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/cardview_default_radius"
-        android:background="@color/white"
-        android:hint="Username"
-        android:outlineAmbientShadowColor="@color/black" />
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/cardview_default_radius"
-        android:background="@color/white"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:outlineAmbientShadowColor="@color/black" />
-    <Button
-        android:id="@+id/btnSubmit"
+        android:layout_height="120dp"
+        android:background="@drawable/blue_bg_small">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="17dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Sign Up Page"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="320dp"
+            android:layout_marginTop="17dp"
+            android:foreground="@drawable/icons8_dumbbell_64"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/icons8_dumbbell_64"
+            tools:srcCompat="@drawable/icons8_dumbbell_64" />
+
+    </FrameLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Submit" />
-    <ImageButton
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:clickable="false"
-        android:padding="10dp"
-        android:scaleType="center"
-        android:src="@drawable/ic_baseline_arrow_back_24"
-        android:textSize="12sp"
-        android:visibility="visible" />
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="50dp"
-        android:foreground="@drawable/icons8_dumbbell_64"
-        android:scaleType="centerInside"
-        app:srcCompat="@drawable/icons8_dumbbell_64"
-        tools:srcCompat="@drawable/icons8_dumbbell_64" />
-    <TextView
-        android:id="@+id/fitnessguys"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/blue_border_rounded_cornwe">
+
+        <EditText
+            android:id="@+id/etfirstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:hint="First Name"
+            android:outlineAmbientShadowColor="@color/black"
+            android:paddingLeft="17dp" />
+
+        />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/blue_border_rounded_cornwe">
+
+        <EditText
+            android:id="@+id/etlastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/cardview_default_radius"
+            android:background="@android:color/transparent"
+            android:hint="Last Name"
+            android:outlineAmbientShadowColor="@color/black"
+            android:paddingLeft="17dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/blue_border_rounded_cornwe">
+
+        <EditText
+            android:id="@+id/etEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/cardview_default_radius"
+            android:background="@android:color/transparent"
+            android:hint="Email Address"
+            android:outlineAmbientShadowColor="@color/black"
+            android:paddingLeft="17dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/blue_border_rounded_cornwe">
+
+        <EditText
+            android:id="@+id/etWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/cardview_default_radius"
+            android:background="@android:color/transparent"
+            android:hint="Weight"
+            android:outlineAmbientShadowColor="@color/black"
+            android:paddingLeft="17dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/blue_border_rounded_cornwe">
+
+        <EditText
+            android:id="@+id/etHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/cardview_default_radius"
+            android:background="@android:color/transparent"
+            android:hint="Height"
+            android:outlineAmbientShadowColor="@color/black"
+            android:paddingLeft="17dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/blue_border_rounded_cornwe">
+
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/cardview_default_radius"
+            android:background="@android:color/transparent"
+            android:hint="Age"
+            android:outlineAmbientShadowColor="@color/black"
+            android:paddingLeft="17dp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/blue_border_rounded_cornwe">
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/cardview_default_radius"
+            android:background="@android:color/transparent"
+            android:hint="Username"
+            android:outlineAmbientShadowColor="@color/black"
+            android:paddingLeft="17dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/blue_border_rounded_cornwe">
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/cardview_default_radius"
+            android:background="@android:color/transparent"
+            android:hint="Password"
+            android:outlineAmbientShadowColor="@color/black"
+            android:paddingLeft="17dp"
+            android:inputType="textPassword"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="135dp"
-        android:textAlignment="center"
-        android:textColor="@color/themeColor"
-        android:textStyle="bold"
-        android:text="Fitness Guys" />
+        android:paddingBottom="10dp">
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/blue_fill__rounded_color"
+            android:text="Submit" />
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/blue_border_white_back_rounded"
+            android:clickable="false"
+            android:padding="10dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:textSize="12sp"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/blue_bg_upside_down"
+        android:layout_marginTop="10dp">
+    </FrameLayout>
+
+
+
 </LinearLayout>
