@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -34,6 +35,7 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_signup);
         back = findViewById(R.id.back);
         firstName = findViewById(R.id.etfirstname);
@@ -94,6 +96,7 @@ public class SignupActivity extends AppCompatActivity {
                 Toast.makeText(SignupActivity.this, "button clicked on back", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(SignupActivity.this, LoginActivity.class);
                 startActivity(i);
+                Animatoo.animateSlideRight(SignupActivity.this);
                 finish();
             }
         });
@@ -105,6 +108,8 @@ public class SignupActivity extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
+
 
 } // class
 

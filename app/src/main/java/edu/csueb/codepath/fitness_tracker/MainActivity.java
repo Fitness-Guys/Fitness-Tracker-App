@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.parse.ParseUser;
 
 import edu.csueb.codepath.fitness_tracker.fragments.HomeFragment;
 import edu.csueb.codepath.fitness_tracker.fragments.LearnFragment;
