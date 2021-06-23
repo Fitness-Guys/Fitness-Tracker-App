@@ -248,19 +248,30 @@ In workout screen
 
 ```
      
-### Progress Gif
+### Version 1 Progress
 ![](progress.gif)
+
+### Current Progress
+![](current.gif)
 
 
 #### [OPTIONAL:] Existing API Endpoints
-##### An API Of Ice And Fire
-- Base URL - [http://www.anapioficeandfire.com/api](http://www.anapioficeandfire.com/api)
+##### Youtube Data API
+- Base URL - [https://www.googleapis.com/youtube/v3/](https://www.googleapis.com/youtube/v3/)
 
    HTTP Verb | Endpoint | Description
    ----------|----------|------------
-    `GET`    | /characters | get all characters
-    `GET`    | /characters/?name=name | return specific character by name
-    `GET`    | /houses   | get all houses
-    `GET`    | /houses/?name=name | return specific house by name
+    `GET`    | /search | states that we are about to search
+    `GET`    | /max   | states the max results, in this case it's 40
+    `GET`    | /order | orders the search by relevance
+    `GET`    | /"search details" | this is where we input the query keywords for the search
 
-
+##### Back4App API
+- Base URL - [https://parseapi.back4app.com/classes/Workout](https://parseapi.back4app.com/classes)
+   HTTP Verb | Endpoint | Description
+   ----------|----------|------------
+    `POST`    | /classes/Workout | we post to the workout object when the user finishes a workout
+    `GET`    | /classes/Workout   | we retrieve the workout data when the user is in home fragment
+    `GET`    | /users | we get user details when we are logging in, and the Profile fragment
+    `POST`    | /users | we post when the user is signing up for a new profile
+    
